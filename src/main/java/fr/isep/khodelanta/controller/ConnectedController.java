@@ -1,11 +1,11 @@
-package fr.isep.homeexchangemanager.controller;
+package fr.isep.khodelanta.controller;
 
-import fr.isep.homeexchangemanager.dao.HouseRepository;
-import fr.isep.homeexchangemanager.dao.ReservationRepository;
-import fr.isep.homeexchangemanager.dao.UserRepository;
-import fr.isep.homeexchangemanager.entities.House;
-import fr.isep.homeexchangemanager.entities.Reservation;
-import fr.isep.homeexchangemanager.entities.User;
+import fr.isep.khodelanta.dao.HouseRepository;
+import fr.isep.khodelanta.dao.ReservationRepository;
+import fr.isep.khodelanta.dao.UserRepository;
+import fr.isep.khodelanta.entities.House;
+import fr.isep.khodelanta.entities.Reservation;
+import fr.isep.khodelanta.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Controller
 public class ConnectedController {

@@ -1,6 +1,6 @@
-package fr.isep.homeexchangemanager.controller;
+package fr.isep.khodelanta.controller;
 
-import fr.isep.homeexchangemanager.dao.UserRepository;
+import fr.isep.khodelanta.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;

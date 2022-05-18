@@ -1,7 +1,7 @@
-package fr.isep.homeexchangemanager.dao;
+package fr.isep.khodelanta.dao;
 
-import fr.isep.homeexchangemanager.entities.Reservation;
-import fr.isep.homeexchangemanager.entities.User;
+import fr.isep.khodelanta.entities.Reservation;
+import fr.isep.khodelanta.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

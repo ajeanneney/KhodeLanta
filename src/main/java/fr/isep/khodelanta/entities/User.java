@@ -1,4 +1,4 @@
-package fr.isep.homeexchangemanager.entities;
+package fr.isep.khodelanta.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -19,42 +19,6 @@
         Mail : ${user.mail}<br>
     </div>
 
-    <div class="shadow rounded p-5 m-2 border border-secondary">
-    Maisons : <br>
-    <table class="table">
-        <tr>
-            <th>title</th>
-            <th>description</th>
-        </tr>
-        <c:forEach items="${houses}" var="h">
-            <tr>
-                <td>${h.title}</td>
-                <td>${h.description}</td>
-            </tr>
-        </c:forEach>
-    </table>
-    </div>
-
-    <div class="shadow rounded p-5 m-2 border border-secondary">
-    Reservations : <br>
-    <table class="table">
-        <tr>
-            <th>maison</th>
-            <th>date debut</th>
-            <th>date fin</th>
-            <th>validée?</th>
-        </tr>
-        <c:forEach items="${reservations}" var="r">
-            <tr>
-                <td>${r.house.getDescription()}</td>
-                <td>${r.startDate}</td>
-                <td>${r.endDate}</td>
-                <td>${r.validated}</td>
-            </tr>
-        </c:forEach>
-    </table>
-    </div>
-
 </div>
 
 </body>

@@ -1,23 +1,22 @@
-package fr.isep.homeexchangemanager;
+package fr.isep.khodelanta;
 
-import fr.isep.homeexchangemanager.dao.HouseRepository;
-import fr.isep.homeexchangemanager.dao.ReservationRepository;
-import fr.isep.homeexchangemanager.dao.UserRepository;
-import fr.isep.homeexchangemanager.entities.House;
-import fr.isep.homeexchangemanager.entities.Reservation;
-import fr.isep.homeexchangemanager.entities.User;
+import fr.isep.khodelanta.dao.HouseRepository;
+import fr.isep.khodelanta.dao.ReservationRepository;
+import fr.isep.khodelanta.dao.UserRepository;
+import fr.isep.khodelanta.entities.House;
+import fr.isep.khodelanta.entities.Reservation;
+import fr.isep.khodelanta.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.util.Date;
-import java.util.List;
 
 @SpringBootApplication
-public class HomeExchangeManagerApplication {
+public class KhodeLanta {
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(HomeExchangeManagerApplication.class, args);
+        ApplicationContext ctx = SpringApplication.run(KhodeLanta.class, args);
         UserRepository userDao = ctx.getBean(UserRepository.class);
         HouseRepository houseDao = ctx.getBean(HouseRepository.class);
         ReservationRepository reservationDao = ctx.getBean(ReservationRepository.class);

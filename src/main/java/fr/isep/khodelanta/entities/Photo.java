@@ -1,4 +1,4 @@
-package fr.isep.homeexchangemanager.entities;
+package fr.isep.khodelanta.entities;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;

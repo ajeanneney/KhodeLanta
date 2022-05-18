@@ -14,9 +14,7 @@
 <body>
 
 <ul>
-    <li><a href="#findAHost">Find a Host</a></li>
-    <li><a href="#becomeAHost">Become A Host</a></li>
-    <li><a href="#sharePetsServices">Share Pet's Services</a></li>
+    <li><a href="#">Khode Lanta</a></li>
     <c:choose>
         <c:when test="${cookie['userId'] == null || cookie['userId'] == ''}">
             <li style="float:right"><a href="#logIn">Log In / Sign Up</a></li>

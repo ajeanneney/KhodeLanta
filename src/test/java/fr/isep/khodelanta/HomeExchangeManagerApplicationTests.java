@@ -1,4 +1,4 @@
-package fr.isep.homeexchangemanager;
+package fr.isep.khodelanta;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
