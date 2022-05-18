@@ -13,17 +13,22 @@
 
 <body>
 
-<ul>
-    <li><a href="#">Khode Lanta</a></li>
-    <c:choose>
-        <c:when test="${cookie['userId'] == null || cookie['userId'] == ''}">
-            <li style="float:right"><a href="#logIn">Log In / Sign Up</a></li>
-        </c:when>
-        <c:otherwise>
-            <li style="float:right"><a href="/disconnect">Disconnect</a></li>
-        </c:otherwise>
-    </c:choose>
-</ul>
+<%--<ul>--%>
+<%--    <li><a href="#">Khode Lanta</a></li>--%>
+<%--    <c:choose>--%>
+<%--        <c:when test="${cookie['userId'] == null || cookie['userId'] == ''}">--%>
+<%--            <li style="float:right"><a href="#logIn">Log In / Sign Up</a></li>--%>
+<%--        </c:when>--%>
+<%--        <c:otherwise>--%>
+<%--            <li style="float:right"><a href="/disconnect">Disconnect</a></li>--%>
+<%--        </c:otherwise>--%>
+<%--    </c:choose>--%>
+<%--</ul>--%>
+
+<nav class="navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Khode Lanta</a>
+
+</nav>
 
 </body>
 </html>
