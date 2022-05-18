@@ -14,13 +14,13 @@
 
 <div class="d-flex justify-content-around">
 
-    <div class="shadow3">
+    <div class="shadow rounded p-5 m-2 border border-secondary">
         Prenom : ${user.firstname}<br>
         Nom : ${user.lastname}<br>
         Mail : ${user.mail}<br>
     </div>
 
-    <div class="shadow3">
+    <div class="shadow rounded p-5 m-2 border border-secondary">
     Maisons : <br>
     <table class="table">
         <tr>
@@ -36,7 +36,7 @@
     </table>
     </div>
 
-    <div class="shadow3">
+    <div class="shadow rounded p-5 m-2 border border-secondary">
     Reservations : <br>
     <table class="table">
         <tr>
