@@ -5,7 +5,6 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Optional;
 
 @Entity
 public class House implements Serializable {
