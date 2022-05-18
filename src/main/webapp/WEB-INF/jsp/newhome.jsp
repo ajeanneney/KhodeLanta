@@ -9,7 +9,7 @@
 </head>
 <h1>Ajouter une nouvelle maison</h1>
 
-<form method="post" action="/newhouse">
+<form method="post" action="/newhome">
     <div>
         <input type="Nom de la maison" class="input2" name="title" id="title" placeholder="Nom de la maison">
     </div>
