@@ -9,10 +9,9 @@
 </head>
 <body>
 
-<h1>Inscription</h1>
-
 <div class="d-flex justify-content-center flex-nowrap">
-    <form action="/signup" method="post" class="shadow">
+    <form action="/signup" method="post" class="shadow rounded p-3 m-3">
+        <h1>Page d'inscription</h1>
         <div class="row">
         <div class="form-group p-2 col">
             <label for="firstname">Prénom</label>
@@ -32,10 +31,10 @@
             <label for="password">Mot de passe</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
         </div>
-        <div class="form-group2">
-            <button type="submit" class="btn_btn-secondary_m-2">S'inscrire</button>
+        <div class="form-group p-2 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary m-2">S'inscrire</button>
+            <a href="/connexion"><button type="button" class="btn btn-secondary m-2">S'identifier</button></a>
         </div>
-        <a href="/connexion">Si vous avez déjà un compte, connectez-vous ici</a>
         </div>
     </form>
 </div>
