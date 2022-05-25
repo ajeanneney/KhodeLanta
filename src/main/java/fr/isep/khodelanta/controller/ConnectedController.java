@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,14 +21,16 @@ public class ConnectedController {
     @RequestMapping(value = "/home")
     public String home(
             Model model,
-            @CookieValue(value = "userId", defaultValue = "") String userId){
-        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:connexion";} //si pas connecté retour page connexion
-        else{
-            User user = userDao.findById(Long.valueOf(userId)).orElse(null);
-            model.addAttribute("user", user);
+            HttpServletRequest request){
 
+        String userId = (String) request.getSession().getAttribute("userId");
 
-            return "home";
-        }
+        if(userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/connexion";}
+
+        System.out.println(request.getSession().getAttribute("userId"));
+        User user = userDao.findById(Long.valueOf(userId)).orElse(null);
+        model.addAttribute("user", user);
+
+        return "home";
     }
 }

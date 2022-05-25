@@ -25,6 +25,14 @@
 <nav class="navbar bg-secondary">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h1 text-light">Khode Lanta</span>
+        <c:choose>
+            <c:when test="${sessionScope.userId == null}">
+                <span class="navbar-brand mb-0 h1 text-light"><a href="/signup">Connexion/Inscription</a></span>
+            </c:when>
+            <c:otherwise>
+            <span class="navbar-brand mb-0 h1 text-light"><a href="/disconnect">Se déconnecter</a><span>
+            </c:otherwise>
+        </c:choose>
     </div>
 </nav>
 
