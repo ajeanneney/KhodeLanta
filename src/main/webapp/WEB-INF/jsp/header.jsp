@@ -10,9 +10,6 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css" />
 </head>
 
-
-<body>
-
 <%--<ul>--%>
 <%--    <li><a href="#">Khode Lanta</a></li>--%>
 <%--    <c:choose>--%>
@@ -25,11 +22,11 @@
 <%--    </c:choose>--%>
 <%--</ul>--%>
 
-<nav class="navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Khode Lanta</a>
-
+<nav class="navbar bg-secondary">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1 text-light">Khode Lanta</span>
+    </div>
 </nav>
 
-</body>
 </html>
 
