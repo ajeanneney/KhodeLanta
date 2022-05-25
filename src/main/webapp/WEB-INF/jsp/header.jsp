@@ -10,21 +10,9 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css" />
 </head>
 
-<%--<ul>--%>
-<%--    <li><a href="#">Khode Lanta</a></li>--%>
-<%--    <c:choose>--%>
-<%--        <c:when test="${cookie['userId'] == null || cookie['userId'] == ''}">--%>
-<%--            <li style="float:right"><a href="#logIn">Log In / Sign Up</a></li>--%>
-<%--        </c:when>--%>
-<%--        <c:otherwise>--%>
-<%--            <li style="float:right"><a href="/disconnect">Disconnect</a></li>--%>
-<%--        </c:otherwise>--%>
-<%--    </c:choose>--%>
-<%--</ul>--%>
-
 <nav class="navbar bg-secondary">
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1 text-light">Khode Lanta</span>
+        <a href="/"><span class="navbar-brand mb-0 h1 text-light">Khode Lanta</span></a>
         <c:choose>
             <c:when test="${sessionScope.userId == null}">
                 <span class="navbar-brand mb-0 h1 text-light"><a href="/signup">Connexion/Inscription</a></span>

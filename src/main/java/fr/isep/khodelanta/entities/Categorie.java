@@ -22,10 +22,9 @@ public class Categorie {
     public Categorie() {
     }
 
-    public Categorie(String name, String description, List<Annonce> annonces) {
+    public Categorie(String name, String description) {
         this.name = name;
         this.description = description;
-        this.annonces = annonces;
     }
 
     public Long getId() {

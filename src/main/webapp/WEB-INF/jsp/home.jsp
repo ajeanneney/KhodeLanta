@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Home</h1>
-
+<a href="/newannonce">nouvelle annonce</a>
 <div class="d-flex justify-content-around">
 
     <div class="shadow rounded p-5 m-2 border border-secondary">
@@ -18,6 +18,20 @@
         Nom : ${user.lastname}<br>
         Mail : ${user.mail}<br>
     </div>
+
+<%--    <div class="shadow rounded p-5 m-2 border border-secondary">--%>
+<%--        <c:forEach items="${annonces}" var="a">--%>
+<%--            ${a.title}<br>--%>
+<%--            ${a.description}<br>--%>
+<%--            ${a.adresse}<br>--%>
+<%--            <c:forEach items="${a.categories}" var="c">--%>
+<%--                ${c.title}<br>--%>
+<%--                ${c.description}<br>--%>
+<%--                <br>--%>
+<%--            </c:forEach>--%>
+<%--            <br><br>--%>
+<%--        </c:forEach>--%>
+<%--    </div>--%>
 
 </div>
 

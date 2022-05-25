@@ -29,6 +29,13 @@ public class Annonce {
     public Annonce() {
     }
 
+    public Annonce(User owner, String title, String description, String adresse) {
+        this.owner = owner;
+        this.title = title;
+        this.description = description;
+        this.adresse = adresse;
+    }
+
     public Annonce(User owner, String title, String description, String adresse, List<Categorie> categories) {
         this.owner = owner;
         this.title = title;
