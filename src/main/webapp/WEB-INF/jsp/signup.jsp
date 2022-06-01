@@ -31,6 +31,10 @@
             <label for="password">Mot de passe</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
         </div>
+        <div class="form-group p-2">
+            <label for="status">Status</label>
+            <input type="status" class="form-control" id="status" name="status" placeholder="Votre Statut" required>
+        </div>
         <div class="form-group p-2 d-flex justify-content-center">
             <button type="submit" class="btn btn-primary m-2">S'inscrire</button>
             <a href="/connexion"><button type="button" class="btn btn-secondary m-2">S'identifier</button></a>

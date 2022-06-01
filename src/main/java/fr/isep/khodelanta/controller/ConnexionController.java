@@ -36,7 +36,7 @@ public class ConnexionController {
             if(Objects.equals(user.getPassword(), password)){
                 HttpSession session = request.getSession();
                 session.setAttribute("userId", user.getId().toString());
-                if(Objects.equals(mail, "admin@admin.com")){
+                if(Objects.equals(user.getStatus(), 3)){
                     session.setAttribute("isAdmin", true);
                 }
                 return "redirect:home";
@@ -64,7 +64,8 @@ public class ConnexionController {
                     paramMap.get("firstname")[0],
                     paramMap.get("lastname")[0],
                     paramMap.get("mail")[0],
-                    paramMap.get("password")[0]
+                    paramMap.get("password")[0],
+                    paramMap.get("status")[0]
             );
             if(userDao.findByMail(user.getMail()) == null) {
                 Long newUserId = userDao.saveAndFlush(user).getId();
