@@ -29,7 +29,7 @@
                 <label>${c.name} : ${c.description}</label><br>
             </c:forEach>
         <div class="form-group p-2 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary m-2">Connexion</button>
+            <button type="submit" class="btn btn-primary m-2">Publier</button>
         </div>
     </form>
 </div>
