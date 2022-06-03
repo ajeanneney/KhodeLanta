@@ -29,7 +29,7 @@ public class ConnexionController {
             HttpServletRequest request){
 
         String userId = (String) request.getSession().getAttribute("userId");
-        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:home";}
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:oldHome";}
 
         if(!Objects.equals(mail, "") && !Objects.equals(password, "")) {
             User user = userDao.findByMail(mail);
@@ -37,13 +37,13 @@ public class ConnexionController {
                 HttpSession session = request.getSession();
                 session.setAttribute("userId", user.getId().toString());
                 if(Objects.equals(user.getStatus(), "3")){
-                    return "redirect:adminPage";
+                    return "redirect:adminHome";
                 }
                 else if(Objects.equals(user.getStatus(), "1")){
-                    return "redirect:studentPage";
+                    return "redirect:studentHome";
                 }
                 else if(Objects.equals(user.getStatus(), "2")){
-                    return "redirect:oldPage";
+                    return "redirect:oldHome";
                 }
                 return "redirect:home";
             } else{
@@ -60,8 +60,8 @@ public class ConnexionController {
             HttpServletRequest request){
 
         String userId = (String) request.getSession().getAttribute("userId");
-        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:studentPage";}
-        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent() && request.getSession().getAttribute("status")=="3"){return "redirect:studentPage";}
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:studentHome";}
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent() && request.getSession().getAttribute("status")=="3"){return "redirect:studentHome";}
 
         Map<String, String[]> paramMap = formRequest.getParameterMap();
 
