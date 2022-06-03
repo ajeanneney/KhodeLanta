@@ -57,6 +57,7 @@ public class AnnonceController {
         }
 
         model.addAttribute("categories", categorieDao.findAll());
+        model.addAttribute("annonces", annonceDao.findAll());
 
 
         return "newannonce";

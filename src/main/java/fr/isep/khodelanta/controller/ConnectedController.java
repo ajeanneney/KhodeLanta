@@ -31,7 +31,6 @@ public class ConnectedController {
 
         User user = userDao.findById(Long.valueOf(userId)).orElse(null);
         model.addAttribute("user", user);
-
         model.addAttribute("annonces", annonceDao.findAll());
         System.out.println("Voici le status "+userDao.findById(Long.valueOf(userId)).get().getStatus());
         return "oldHome";
@@ -40,6 +39,8 @@ public class ConnectedController {
     public String studentHome(
             Model model,
             HttpServletRequest request){
+        model.addAttribute("annonces", annonceDao.findAll());
+
         return "studentHome";
     }
     @RequestMapping(value = "/adminHome")
