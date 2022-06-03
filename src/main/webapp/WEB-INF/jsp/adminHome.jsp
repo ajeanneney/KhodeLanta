@@ -11,8 +11,8 @@
 <body>
 
 <div class="d-flex justify-content-center flex-nowrap">
-    <form action="/studentHome" method="post" class="shadow rounded p-3 m-3">
-        <h1>Page pour étudiants</h1>
+    <form action="/adminHome" method="post" class="shadow rounded p-3 m-3">
+        <h1>Page pour l'admin</h1>
             <div class="shadow rounded p-5 m-2 border border-secondary">
                 <c:forEach items="${annonces}" var="a">
                     ${a.title}<br>

@@ -6,12 +6,9 @@ import fr.isep.khodelanta.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
-import java.util.Objects;
 
 @Controller
 public class ConnectedController {
@@ -22,8 +19,8 @@ public class ConnectedController {
     @Autowired
     private AnnonceRepository annonceDao;
 
-    @RequestMapping(value = "/home")
-    public String home(
+    @RequestMapping(value = "/oldHome")
+    public String oldHome(
             Model model,
             HttpServletRequest request){
 
@@ -37,12 +34,19 @@ public class ConnectedController {
 
         model.addAttribute("annonces", annonceDao.findAll());
         System.out.println("Voici le status "+userDao.findById(Long.valueOf(userId)).get().getStatus());
-        return "home";
+        return "oldHome";
     }
-    @RequestMapping(value = "/studentPage")
-    public String studentPage(
+    @RequestMapping(value = "/studentHome")
+    public String studentHome(
             Model model,
             HttpServletRequest request){
-        return "studentPage";
+        return "studentHome";
     }
+    @RequestMapping(value = "/adminHome")
+    public String adminHome(
+            Model model,
+            HttpServletRequest request){
+        return "adminHome";
+    }
+
 }
