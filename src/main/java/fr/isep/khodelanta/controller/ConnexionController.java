@@ -36,8 +36,9 @@ public class ConnexionController {
             if(Objects.equals(user.getPassword(), password)){
                 HttpSession session = request.getSession();
                 session.setAttribute("userId", user.getId().toString());
-                if(Objects.equals(user.getStatus(), 3)){
-                    session.setAttribute("isAdmin", true);
+                System.out.println(user.getStatus());
+                if(Objects.equals(user.getStatus(), "3")){
+                    return "redirect:studentPage";
                 }
                 return "redirect:home";
             } else{
@@ -54,7 +55,9 @@ public class ConnexionController {
             HttpServletRequest request){
 
         String userId = (String) request.getSession().getAttribute("userId");
-        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:home";}
+        System.out.println(userId + "here");
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent() && userDao.findById(Long.valueOf(userId)).get().getStatus()=="3"){return "redirect:studentPage";}
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent() && request.getSession().getAttribute("status")=="3"){return "redirect:studentPage";}
 
         Map<String, String[]> paramMap = formRequest.getParameterMap();
 

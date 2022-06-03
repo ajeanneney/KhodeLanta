@@ -22,7 +22,7 @@ public class KhodeLanta {
 
         //seeder :
         if(userDao.findAll().size() == 0) {
-            User user = new User("admin", "admin", "admin@admin.com", "admin","1");
+            User user = new User("admin", "admin", "admin@admin.com", "admin","3");
             User user2 = new User("user", "user", "user@user.com", "user","2");
             userDao.save(user);
             userDao.save(user2);

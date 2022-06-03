@@ -16,12 +16,17 @@ public class User implements Serializable {
     private String status;
 
 
+
     public User(String firstname, String lastname, String mail, String password, String status) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
         this.password = password;
         this.status = status;
+    }
+
+    public User() {
+
     }
 
     public String getStatus() {

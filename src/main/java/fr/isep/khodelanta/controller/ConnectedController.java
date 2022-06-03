@@ -28,6 +28,8 @@ public class ConnectedController {
             HttpServletRequest request){
 
         String userId = (String) request.getSession().getAttribute("userId");
+        System.out.println(userId);
+        System.out.println(userDao.findById(Long.valueOf(userId)).get().getFirstname());
 
         if(userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/connexion";}
 
@@ -35,7 +37,15 @@ public class ConnectedController {
         model.addAttribute("user", user);
 
         model.addAttribute("annonces", annonceDao.findAll());
-
+        if(userDao.findById(Long.valueOf(userId)).get().getStatus()=="3"){
+            return "redirect:/studentPage";
+        }
         return "home";
+    }
+    @RequestMapping(value = "/studentPage")
+    public String studentPage(
+            Model model,
+            HttpServletRequest request){
+        return "studentPage";
     }
 }
