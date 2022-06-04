@@ -23,7 +23,7 @@ public class MainController {
 
         if(userId == null || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/connexion";}
         else{
-            return "redirect:studentPage";
+            return "redirect:studentHome";
         }
     }
 
