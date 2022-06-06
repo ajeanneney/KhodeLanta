@@ -1,15 +1,19 @@
 package fr.isep.khodelanta.controller;
 
 import fr.isep.khodelanta.dao.AnnonceRepository;
+import fr.isep.khodelanta.dao.CategorieRepository;
 import fr.isep.khodelanta.dao.UserRepository;
 import fr.isep.khodelanta.entities.Annonce;
+import fr.isep.khodelanta.entities.Categorie;
 import fr.isep.khodelanta.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.transform.sax.SAXResult;
 import java.util.List;
 
 @Controller
@@ -20,6 +24,9 @@ public class ConnectedController {
 
     @Autowired
     private AnnonceRepository annonceDao;
+
+    @Autowired
+    private CategorieRepository categorieDao;
 
     @RequestMapping(value = "/oldHome")
     public String oldHome(
@@ -47,11 +54,17 @@ public class ConnectedController {
     @RequestMapping(value = "/adminHome")
     public String adminHome(
             Model model,
-            HttpServletRequest request){
+            HttpServletRequest request,
+            @RequestParam(name = "name", required = false) String name,
+            @RequestParam(name = "description", required = false) String description){
 
-        List<Annonce> annonceList = annonceDao.findAll();
-        System.out.println(annonceList);
-        model.addAttribute("annonces", annonceList);
+
+        if(name != null && !name.isEmpty() && description != null && !description.isEmpty()){
+            Categorie categorie = new Categorie(name, description);
+            categorieDao.save(categorie);
+        }
+
+        model.addAttribute("annonces", annonceDao.findAll());
         return "adminHome";
     }
 
