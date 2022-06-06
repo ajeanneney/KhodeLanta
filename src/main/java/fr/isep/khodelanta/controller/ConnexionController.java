@@ -1,6 +1,7 @@
 package fr.isep.khodelanta.controller;
 
 import fr.isep.khodelanta.dao.UserRepository;
+import fr.isep.khodelanta.entities.PersonType;
 import fr.isep.khodelanta.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,16 +37,16 @@ public class ConnexionController {
             if(Objects.equals(user.getPassword(), password)){
                 HttpSession session = request.getSession();
                 session.setAttribute("userId", user.getId().toString());
-                if(Objects.equals(user.getStatus(), "3")){
+                if(Objects.equals(user.getPersonType(), PersonType.ADMIN)){
                     return "redirect:adminHome";
                 }
-                else if(Objects.equals(user.getStatus(), "1")){
+                else if(Objects.equals(user.getPersonType(), PersonType.STUDENT)){
                     return "redirect:studentHome";
                 }
-                else if(Objects.equals(user.getStatus(), "2")){
+                else if(Objects.equals(user.getPersonType(), PersonType.OLD)){
                     return "redirect:oldHome";
                 }
-                return "redirect:home";
+                return "redirect:/";
             } else{
                 System.out.println("mauvais password");
             }
@@ -72,12 +73,14 @@ public class ConnexionController {
                     paramMap.get("lastname")[0],
                     paramMap.get("mail")[0],
                     paramMap.get("password")[0],
-                    paramMap.get("status")[0]
+                    PersonType.valueOf(paramMap.get("persontype")[0])
             );
             if(userDao.findByMail(user.getMail()) == null) {
                 Long newUserId = userDao.saveAndFlush(user).getId();
                 request.getSession().setAttribute("userId", newUserId.toString());
-                return "redirect:home";
+                if(user.getPersonType() == PersonType.ADMIN){return "redirect:adminHome";}
+                if(user.getPersonType() == PersonType.STUDENT){return "redirect:studentHome";}
+                if(user.getPersonType() == PersonType.OLD){return "redirect:oldHome";}
             } else{
                 return "signup";
             }
