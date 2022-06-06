@@ -13,19 +13,19 @@
 <div class="d-flex justify-content-center flex-nowrap">
     <form action="/adminHome" method="post" class="shadow rounded p-3 m-3">
         <h1>Page pour l'admin</h1>
-            <div class="shadow rounded p-5 m-2 border border-secondary">
-                <c:forEach items="${annonces}" var="a">
+            <c:forEach items="${annonces}" var="a">
+                <div class="shadow rounded p-5 m-2 border border-secondary">
                     ${a.title}<br>
                     ${a.description}<br>
                     ${a.adresse}<br>
                     <c:forEach items="${a.categories}" var="c">
-                        ${c.title}<br>
+                        ${c.name}<br>
                         ${c.description}<br>
                         <br>
                     </c:forEach>
                     <br><br>
-                </c:forEach>
-        </div>
+                </div>
+            </c:forEach>
     </form>
 </div>
 
