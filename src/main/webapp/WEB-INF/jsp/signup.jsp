@@ -32,8 +32,12 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
         </div>
         <div class="form-group p-2">
-            <label for="status">Status</label>
-            <input type="status" class="form-control" id="status" name="status" placeholder="Votre Statut" required>
+            <select name="persontype" id="persontype" class="form-select">
+                <option value="" selected disabled>Choisisez un type d'utilisateur</option>
+                <option value="ADMIN">Administrateur</option>
+                <option value="STUDENT">Etudiant</option>
+                <option value="OLD">Personne aggée</option>
+            </select>
         </div>
         <div class="form-group p-2 d-flex justify-content-center">
             <button type="submit" class="btn btn-primary m-2">S'inscrire</button>

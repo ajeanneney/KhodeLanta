@@ -30,7 +30,7 @@ public class AnnonceController {
     @Autowired
     private CategorieRepository categorieDao;
 
-    @RequestMapping(value = "/newannonce")
+    @RequestMapping(value = "/old/newannonce")
     public String newAnnonce(
         Model model,
         HttpServletRequest request,
