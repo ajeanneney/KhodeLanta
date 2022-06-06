@@ -30,7 +30,7 @@ public class ConnexionController {
             HttpServletRequest request){
 
         String userId = (String) request.getSession().getAttribute("userId");
-        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:oldHome";}
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:old/home";}
 
         if(!Objects.equals(mail, "") && !Objects.equals(password, "")) {
             User user = userDao.findByMail(mail);
@@ -38,13 +38,13 @@ public class ConnexionController {
                 HttpSession session = request.getSession();
                 session.setAttribute("userId", user.getId().toString());
                 if(Objects.equals(user.getPersonType(), PersonType.ADMIN)){
-                    return "redirect:adminHome";
+                    return "redirect:admin/home";
                 }
                 else if(Objects.equals(user.getPersonType(), PersonType.STUDENT)){
-                    return "redirect:studentHome";
+                    return "redirect:student/home";
                 }
                 else if(Objects.equals(user.getPersonType(), PersonType.OLD)){
-                    return "redirect:oldHome";
+                    return "redirect:old/home";
                 }
                 return "redirect:/";
             } else{
@@ -61,8 +61,8 @@ public class ConnexionController {
             HttpServletRequest request){
 
         String userId = (String) request.getSession().getAttribute("userId");
-        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:studentHome";}
-        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent() && request.getSession().getAttribute("status")=="3"){return "redirect:studentHome";}
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:student/home";}
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent() && request.getSession().getAttribute("status")=="3"){return "redirect:student/home";}
 
         Map<String, String[]> paramMap = formRequest.getParameterMap();
 
@@ -78,9 +78,9 @@ public class ConnexionController {
             if(userDao.findByMail(user.getMail()) == null) {
                 Long newUserId = userDao.saveAndFlush(user).getId();
                 request.getSession().setAttribute("userId", newUserId.toString());
-                if(user.getPersonType() == PersonType.ADMIN){return "redirect:adminHome";}
-                if(user.getPersonType() == PersonType.STUDENT){return "redirect:studentHome";}
-                if(user.getPersonType() == PersonType.OLD){return "redirect:oldHome";}
+                if(user.getPersonType() == PersonType.ADMIN){return "redirect:admin/home";}
+                if(user.getPersonType() == PersonType.STUDENT){return "redirect:student/home";}
+                if(user.getPersonType() == PersonType.OLD){return "redirect:old/home";}
             } else{
                 return "signup";
             }

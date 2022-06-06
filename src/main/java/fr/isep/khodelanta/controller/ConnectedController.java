@@ -3,7 +3,6 @@ package fr.isep.khodelanta.controller;
 import fr.isep.khodelanta.dao.AnnonceRepository;
 import fr.isep.khodelanta.dao.CategorieRepository;
 import fr.isep.khodelanta.dao.UserRepository;
-import fr.isep.khodelanta.entities.Annonce;
 import fr.isep.khodelanta.entities.Categorie;
 import fr.isep.khodelanta.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.transform.sax.SAXResult;
-import java.util.List;
 
 @Controller
 public class ConnectedController {
@@ -28,7 +25,7 @@ public class ConnectedController {
     @Autowired
     private CategorieRepository categorieDao;
 
-    @RequestMapping(value = "/oldHome")
+    @RequestMapping(value = "/old/home")
     public String oldHome(
             Model model,
             HttpServletRequest request){
@@ -44,7 +41,7 @@ public class ConnectedController {
         return "oldHome";
     }
 
-    @RequestMapping(value = "/adminHome")
+    @RequestMapping(value = "/admin/home")
     public String adminHome(
             Model model,
             HttpServletRequest request,

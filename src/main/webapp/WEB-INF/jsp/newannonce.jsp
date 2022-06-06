@@ -13,7 +13,7 @@
 <a href="/">Retour home</a>
 
 <div class="d-flex justify-content-center flex-nowrap">
-        <form action="/newannonce" method="post" class="shadow rounded p-3 m-3">
+        <form action="" method="post" class="shadow rounded p-3 m-3">
         <h1>Créer une annonce</h1>
         <div class="form-group p-2">
             <label for="title">Titre de l'annonce</label><input type="text" name="title" id="title" class="form-control" required>

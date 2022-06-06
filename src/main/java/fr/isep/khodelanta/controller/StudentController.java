@@ -14,7 +14,7 @@ public class StudentController {
     @Autowired
     private AnnonceRepository annonceDao;
 
-    @RequestMapping(value = "/studentHome")
+    @RequestMapping(value = "/student/home")
     public String studentHome(
             Model model,
             HttpServletRequest request){
