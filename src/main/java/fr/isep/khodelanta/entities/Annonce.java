@@ -3,7 +3,11 @@ package fr.isep.khodelanta.entities;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -22,6 +26,8 @@ public class Annonce {
     private String description;
 
     private String adresse;
+
+    @JsonFormat(pattern = "yyyy-MM-dd") LocalDate date;
 
     @ManyToMany
     private List<Categorie> categories;
@@ -90,5 +96,13 @@ public class Annonce {
 
     public void setCategories(List<Categorie> categories) {
         this.categories = categories;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = LocalDate.parse(date);
     }
 }
