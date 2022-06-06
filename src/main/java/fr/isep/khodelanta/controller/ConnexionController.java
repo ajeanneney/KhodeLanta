@@ -37,16 +37,10 @@ public class ConnexionController {
             if(Objects.equals(user.getPassword(), password)){
                 HttpSession session = request.getSession();
                 session.setAttribute("userId", user.getId().toString());
-                if(Objects.equals(user.getPersonType(), PersonType.ADMIN)){
-                    return "redirect:admin/home";
-                }
-                else if(Objects.equals(user.getPersonType(), PersonType.STUDENT)){
-                    return "redirect:student/home";
-                }
-                else if(Objects.equals(user.getPersonType(), PersonType.OLD)){
-                    return "redirect:old/home";
-                }
-                return "redirect:/";
+                if(user.getPersonType() == PersonType.ADMIN){return "redirect:admin/home";}
+                if(user.getPersonType() == PersonType.STUDENT){return "redirect:student/home";}
+                if(user.getPersonType() == PersonType.OLD){return "redirect:old/home";}
+                return "redirect:/connexion"; //n'est pas censé arriver
             } else{
                 System.out.println("mauvais password");
             }
