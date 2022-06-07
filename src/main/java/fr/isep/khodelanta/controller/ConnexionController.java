@@ -1,6 +1,7 @@
 package fr.isep.khodelanta.controller;
 
 import fr.isep.khodelanta.dao.UserRepository;
+import fr.isep.khodelanta.entities.PersonType;
 import fr.isep.khodelanta.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,23 +30,17 @@ public class ConnexionController {
             HttpServletRequest request){
 
         String userId = (String) request.getSession().getAttribute("userId");
-        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:oldHome";}
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:old/home";}
 
         if(!Objects.equals(mail, "") && !Objects.equals(password, "")) {
             User user = userDao.findByMail(mail);
             if(Objects.equals(user.getPassword(), password)){
                 HttpSession session = request.getSession();
                 session.setAttribute("userId", user.getId().toString());
-                if(Objects.equals(user.getStatus(), "3")){
-                    return "redirect:adminHome";
-                }
-                else if(Objects.equals(user.getStatus(), "1")){
-                    return "redirect:studentHome";
-                }
-                else if(Objects.equals(user.getStatus(), "2")){
-                    return "redirect:oldHome";
-                }
-                return "redirect:home";
+                if(user.getPersonType() == PersonType.ADMIN){return "redirect:admin/home";}
+                if(user.getPersonType() == PersonType.STUDENT){return "redirect:student/home";}
+                if(user.getPersonType() == PersonType.OLD){return "redirect:old/home";}
+                return "redirect:/connexion"; //n'est pas censé arriver
             } else{
                 System.out.println("mauvais password");
             }
@@ -60,8 +55,8 @@ public class ConnexionController {
             HttpServletRequest request){
 
         String userId = (String) request.getSession().getAttribute("userId");
-        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:studentHome";}
-        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent() && request.getSession().getAttribute("status")=="3"){return "redirect:studentHome";}
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:student/home";}
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent() && request.getSession().getAttribute("status")=="3"){return "redirect:student/home";}
 
         Map<String, String[]> paramMap = formRequest.getParameterMap();
 
@@ -72,12 +67,14 @@ public class ConnexionController {
                     paramMap.get("lastname")[0],
                     paramMap.get("mail")[0],
                     paramMap.get("password")[0],
-                    paramMap.get("status")[0]
+                    PersonType.valueOf(paramMap.get("persontype")[0])
             );
             if(userDao.findByMail(user.getMail()) == null) {
                 Long newUserId = userDao.saveAndFlush(user).getId();
                 request.getSession().setAttribute("userId", newUserId.toString());
-                return "redirect:home";
+                if(user.getPersonType() == PersonType.ADMIN){return "redirect:admin/home";}
+                if(user.getPersonType() == PersonType.STUDENT){return "redirect:student/home";}
+                if(user.getPersonType() == PersonType.OLD){return "redirect:old/home";}
             } else{
                 return "signup";
             }

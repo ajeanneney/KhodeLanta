@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Home</h1>
-<a href="/newannonce">nouvelle annonce</a>
+<a href="/old/newannonce">nouvelle annonce</a>
 <div class="d-flex justify-content-around">
 
     <div class="shadow rounded p-5 m-2 border border-secondary">

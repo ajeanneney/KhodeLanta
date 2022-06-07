@@ -13,30 +13,29 @@ public class User implements Serializable {
     private String lastname;
     private String mail;
     private String password;
-    private String status;
+    private PersonType personType;
 
 
 
-    public User(String firstname, String lastname, String mail, String password, String status) {
+    public User(String firstname, String lastname, String mail, String password, PersonType personType) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
         this.password = password;
-        this.status = status;
+        this.personType = personType;
     }
 
     public User() {
 
     }
 
-    public String getStatus() {
-        return status;
+    public PersonType getPersonType() {
+        return personType;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setPersonType(PersonType personType) {
+        this.personType = personType;
     }
-
 
     public Long getId() {
         return id;
