@@ -25,19 +25,19 @@ public class KhodeLanta {
 
 
         //seeder :
-        annonceDao.deleteAll();
-        userDao.deleteAll();
-        categorieDao.deleteAll();
-
-        User user = new User("admin", "admin", "admin@admin.com", encoder("admin"), PersonType.ADMIN);
-        User user2 = new User("student", "user", "student@student.com", encoder("user"), PersonType.STUDENT);
-        User user3 = new User("old", "user", "old@old.com", encoder("user"), PersonType.OLD);
-        userDao.save(user);
-        userDao.save(user2);
-        userDao.save(user3);
-
-        categorieDao.save(new Categorie("Jardinier", "Faire du jardinage"));
-        categorieDao.save(new Categorie("Cuisine", "Faire la cuisine"));
+//        annonceDao.deleteAll();
+//        userDao.deleteAll();
+//        categorieDao.deleteAll();
+//
+//        User user = new User("admin", "admin", "admin@admin.com", encoder("admin"), PersonType.ADMIN);
+//        User user2 = new User("student", "user", "student@student.com", encoder("user"), PersonType.STUDENT);
+//        User user3 = new User("old", "user", "old@old.com", encoder("user"), PersonType.OLD);
+//        userDao.save(user);
+//        userDao.save(user2);
+//        userDao.save(user3);
+//
+//        categorieDao.save(new Categorie("Jardinier", "Faire du jardinage"));
+//        categorieDao.save(new Categorie("Cuisine", "Faire la cuisine"));
 
 
     }

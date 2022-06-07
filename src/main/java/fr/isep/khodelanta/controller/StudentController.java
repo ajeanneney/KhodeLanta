@@ -147,7 +147,7 @@ public class StudentController {
         }
 
         model.addAttribute("recherche", recherche);
-        Annonce annonces = annonceDao.search(title, City.valueOf(city), rechercheCategories);
+//        Annonce annonces = annonceDao.search(title, City.valueOf(city), rechercheCategories);
 
         rechercheDao.save(recherche);
 

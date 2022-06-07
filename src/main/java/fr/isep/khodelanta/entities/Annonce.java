@@ -2,14 +2,15 @@ package fr.isep.khodelanta.entities;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.core.SpringVersion;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 public class Annonce {
     @Id
-
     @GeneratedValue
     private Long id;
 
@@ -34,11 +35,12 @@ public class Annonce {
     @ManyToMany
     private List<Categorie> categories;
 
+    private Date date;
+
     public Annonce() {
     }
 
-
-    public Annonce(User owner, String title, String description, String adresse, City city, String prix, List<Categorie> categories,Boolean isverified) {
+    public Annonce(User owner, String title, String description, String adresse, City city, String prix, List<Categorie> categories,Boolean isverified, String date) {
         this.owner = owner;
         this.title = title;
         this.description = description;
@@ -47,6 +49,7 @@ public class Annonce {
         this.categories = categories;
         this.adresse = adresse;
         this.isverified = isverified;
+        this.date = java.sql.Date.valueOf(date);
     }
 
     public String getAdresse() {

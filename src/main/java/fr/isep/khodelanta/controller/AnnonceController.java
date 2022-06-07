@@ -33,20 +33,21 @@ public class AnnonceController {
 
     @RequestMapping(value = "/old/newannonce")
     public String newAnnonce(
-        Model model,
-        HttpServletRequest request,
-        @RequestParam(value = "title", defaultValue = "") String title,
-        @RequestParam(value = "description", defaultValue = "") String description,
-        @RequestParam(value = "city", defaultValue = "") String city,
-        @RequestParam(value = "categories", required = false) Long[] categories,
-        @RequestParam(value = "adresse", defaultValue = "") String adresse,
-        @RequestParam(value = "prix", defaultValue = "") String prix
-    ){
+            Model model,
+            HttpServletRequest request,
+            @RequestParam(value = "title", defaultValue = "") String title,
+            @RequestParam(value = "description", defaultValue = "") String description,
+            @RequestParam(value = "city", defaultValue = "") String city,
+            @RequestParam(value = "categories", required = false) Long[] categories,
+            @RequestParam(value = "adresse", defaultValue = "") String adresse,
+            @RequestParam(value = "prix", defaultValue = "") String prix,
+            @RequestParam(value = "date", defaultValue = "")String date
+            ){
 
         String userId = (String) request.getSession().getAttribute("userId");
         if(userId == null || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
-        if(!Objects.equals(title, "") && !Objects.equals(description, "") && !Objects.equals(city, "") && !Objects.equals(adresse, "")){
+        if(!Objects.equals(title, "") && !Objects.equals(description, "") && !Objects.equals(city, "") && !Objects.equals(adresse, "") && !Objects.equals(prix, "") && !Objects.equals(date, "")){
             User user = userDao.getById(Long.valueOf(userId));
 
             List<Categorie> annonceCategories =
@@ -54,7 +55,7 @@ public class AnnonceController {
                         return categorieDao.findById(n).orElse(null);
                     }).collect(Collectors.toList());
 
-            Annonce annonce = new Annonce(user, title, description, adresse, City.valueOf(city),prix, annonceCategories,false);
+            Annonce annonce = new Annonce(user, title, description, adresse, City.valueOf(city), prix, annonceCategories, false, date);
             annonceDao.save(annonce);
             return "redirect:/";
         }
