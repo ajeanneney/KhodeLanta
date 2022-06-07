@@ -90,6 +90,7 @@ public class StudentController {
 
         model.addAttribute("cities", City.values());
         model.addAttribute("categories", categorieDao.findAll());
+        model.addAttribute("recherches", rechercheDao.findAll());
 
         return "search";
     }
@@ -110,11 +111,10 @@ public class StudentController {
 
         Recherche recherche = new Recherche();
         recherche.setUser(user);
-        if(!title.isEmpty()){recherche.setTitle(title);}
-        if(!city.isEmpty()){recherche.setCity(City.valueOf(city));}
+        if(title != null){recherche.setTitle(title);}
+        if(city != null){recherche.setCity(City.valueOf(city));}
         if(!date.isEmpty()){recherche.setDate(Date.valueOf(date));}
 
-        System.out.println(Arrays.toString(categories));
         if(categories != null ) {
             List<Categorie> rechercheCategories =
                     Arrays.stream(categories).map(n -> categorieDao.findById(n).orElse(null)).collect(Collectors.toList());

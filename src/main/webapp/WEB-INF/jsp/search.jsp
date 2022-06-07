@@ -14,6 +14,12 @@
 <div class="d-flex justify-content-center flex-nowrap">
     <form action="/student/search/result" method="get" class="shadow rounded p-3 m-3">
         <h1>Recherche avancée d'annonces</h1>
+        <div class="form-group shadow rounded border border-secondary p-3 m-3">
+            <h2>Recherches récentes</h2>
+            ${recherches[recherches.size()-1].title}<br>
+            ${recherches[recherches.size()-2].title}<br>
+            ${recherches[recherches.size()-3].title}<br>
+        </div>
         <div class="form-group p-2">
             <label for="title">Titre de la demande recherchée</label>
             <input type="text" class="form-control" id="title" name="title" placeholder="Titre de la demande">
