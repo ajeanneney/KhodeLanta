@@ -23,8 +23,42 @@
 
 <div class="d-flex justify-content-around">
     <div class="p-5 m-2">
+        Mes annonces
+    </div>
+        <c:forEach items="${annoncesByOwner}" var="a">
+            <div class="shadow rounded p-5 m-2 border border-secondary">
+                    ${a.title}<br>
+                    ${a.description}<br>
+                    ${a.adresse}<br>
+                    ${a.date}<br>
+                <c:forEach items="${a.categories}" var="c">
+                    ${c.name}<br>
+                    ${c.description}<br>
+                    <br>
+                </c:forEach>
+                <br><br>
+            </div>
+        </c:forEach>
+</div>
+
+<div class="d-flex justify-content-around">
+    <div class="p-5 m-2">
         Aujourd'hui :
     </div>
+    <c:forEach items="${annoncesByOwnerAndDate}" var="a">
+        <div class="shadow rounded p-5 m-2 border border-secondary">
+                ${a.title}<br>
+                ${a.description}<br>
+                ${a.adresse}<br>
+                ${a.date}<br>
+            <c:forEach items="${a.categories}" var="c">
+                ${c.name}<br>
+                ${c.description}<br>
+                <br>
+            </c:forEach>
+            <br><br>
+        </div>
+    </c:forEach>
 </div>
 
 </body>
