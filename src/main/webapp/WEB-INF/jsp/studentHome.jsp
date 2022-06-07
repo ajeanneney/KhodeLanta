@@ -1,4 +1,4 @@
-        "<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@
                 <c:forEach items="${annonces}" var="a">
                     ${a.title}<br>
                     ${a.description}<br>
-                    ${a.adresse}<br>
+                    ${a.city.name}<br>
                     ${a.date}<br>
                     <c:forEach items="${a.categories}" var="c">
                         ${c.name}<br>

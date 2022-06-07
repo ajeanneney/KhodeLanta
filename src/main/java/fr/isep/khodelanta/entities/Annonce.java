@@ -24,6 +24,8 @@ public class Annonce {
 
     private String description;
 
+    private City city;
+
     private String adresse;
 
     private Date date;
@@ -34,10 +36,12 @@ public class Annonce {
     public Annonce() {
     }
 
-    public Annonce(User owner, String title, String description, String adresse, String date) {
+    public Annonce(User owner, String title, String description, String adresse, City city, List<Categorie> categories, Date date) {
         this.owner = owner;
         this.title = title;
         this.description = description;
+        this.city = city;
+        this.categories = categories;
         this.adresse = adresse;
         this.date = Date.valueOf(date);
     }
@@ -49,6 +53,14 @@ public class Annonce {
         this.adresse = adresse;
         this.categories = categories;
         this.date = Date.valueOf(date);
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
 
     public Long getId() {
@@ -83,12 +95,12 @@ public class Annonce {
         this.description = description;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public City getCity() {
+        return city;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setCity(City city) {
+        this.city = city;
     }
 
     public List<Categorie> getCategories() {
