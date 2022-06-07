@@ -36,22 +36,13 @@ public class Annonce {
     public Annonce() {
     }
 
-    public Annonce(User owner, String title, String description, String adresse, City city, List<Categorie> categories, Date date) {
+    public Annonce(User owner, String title, String description, String adresse, City city, List<Categorie> categories, String date) {
         this.owner = owner;
         this.title = title;
         this.description = description;
         this.city = city;
         this.categories = categories;
         this.adresse = adresse;
-        this.date = Date.valueOf(date);
-    }
-
-    public Annonce(User owner, String title, String description, String adresse, List<Categorie> categories, String date) {
-        this.owner = owner;
-        this.title = title;
-        this.description = description;
-        this.adresse = adresse;
-        this.categories = categories;
         this.date = Date.valueOf(date);
     }
 

@@ -38,10 +38,10 @@ public class AnnonceController {
         @RequestParam(value = "title", defaultValue = "") String title,
         @RequestParam(value = "description", defaultValue = "") String description,
         @RequestParam(value = "adresse", defaultValue = "") String adresse,
+        @RequestParam(value = "city", defaultValue = "") String city,
         @RequestParam(value = "categories", required = false) Long[] categories,
         @RequestParam(value = "date", required = false) String date
-        @RequestParam(value = "city", defaultValue = "") String city,
-        @RequestParam(value = "adresse", defaultValue = "") String adresse
+
     ){
 
         String userId = (String) request.getSession().getAttribute("userId");
