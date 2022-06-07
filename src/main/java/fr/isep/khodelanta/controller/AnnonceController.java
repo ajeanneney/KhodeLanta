@@ -68,4 +68,14 @@ public class AnnonceController {
         return "newannonce";
     }
 
+    @RequestMapping(value = "/old/deleteannonce")
+    public String deleteAnnonce(
+            @RequestParam(value = "id", defaultValue = "") long id
+    ) {
+        annonceDao.deleteById(id);
+        return "oldHome";
+    }
+
+
+
 }
