@@ -4,14 +4,15 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Connexion</title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css" />
     <jsp:include page="header.jsp"/>
 </head>
 <body>
 
 <div class="d-flex justify-content-center flex-nowrap">
-        <h1>Page pour étudiants</h1>
+    <h1>Page pour étudiants</h1>
+    <a href="/student/search">Rechercher une annonce</a>
     <div class="shadow rounded p-5 m-2 border border-secondary">
                 <c:forEach items="${annonces}" var="a">
                     ${a.title}<br>

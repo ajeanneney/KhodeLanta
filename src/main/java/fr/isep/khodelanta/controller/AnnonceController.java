@@ -45,16 +45,18 @@ public class AnnonceController {
 
     ){
 
+
         String userId = (String) request.getSession().getAttribute("userId");
         if(userId == null || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
-        if(!Objects.equals(title, "") && !Objects.equals(description, "") && !Objects.equals(city, "") && !Objects.equals(adresse, "")){
+        if(!Objects.equals(title, "") && !Objects.equals(description, "") && !Objects.equals(city, "") && !Objects.equals(adresse, "") && !Objects.equals(prix, "") && !Objects.equals(date, "")){
             User user = userDao.getById(Long.valueOf(userId));
 
             List<Categorie> annonceCategories =
                     Arrays.stream(categories).map(n->{
                         return categorieDao.findById(n).orElse(null);
                     }).collect(Collectors.toList());
+
 
             Annonce annonce = new Annonce(user, title, description, adresse, City.valueOf(city), annonceCategories, date, price);
             annonceDao.save(annonce);

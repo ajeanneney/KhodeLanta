@@ -28,6 +28,11 @@ public class Annonce {
 
     private String adresse;
 
+    private String prix;
+
+    @Column(columnDefinition = "boolean default false")
+    private Boolean isverified;
+
     private Date date;
     private int price;
 
@@ -47,6 +52,7 @@ public class Annonce {
         this.date = Date.valueOf(date);
         this.price = Integer.parseInt(price);
     }
+
 
     public String getAdresse() {
         return adresse;
@@ -95,6 +101,18 @@ public class Annonce {
     public void setCity(City city) {
         this.city = city;
     }
+
+    public String getPrix() {
+        return prix;
+    }
+
+    public void setPrix(String prix) {
+        this.prix = prix;
+    }
+
+    public boolean getIsverified() {return isverified;}
+
+    public void setIsverified(Boolean verified) { this.isverified = isverified;}
 
     public List<Categorie> getCategories() {
         return categories;
