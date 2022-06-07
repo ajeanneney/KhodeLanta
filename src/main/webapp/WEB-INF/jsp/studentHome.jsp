@@ -16,7 +16,7 @@
                 <c:forEach items="${annonces}" var="a">
                     ${a.title}<br>
                     ${a.description}<br>
-                    ${a.adresse}<br>
+                    ${a.city.name}<br>
                     <c:forEach items="${a.categories}" var="c">
                         ${c.name}<br>
                         ${c.description}<br>
