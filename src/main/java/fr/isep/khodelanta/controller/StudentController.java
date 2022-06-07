@@ -151,7 +151,7 @@ public class StudentController {
         rechercheDao.save(recherche);
 
         List<Annonce> annonces = annonceDao.findAll().stream()
-                .filter(a -> a.getTitle().matches(".*"+title+"*."))
+                .filter(a -> a.getTitle().matches("(?i)(?<= |^)"+title+"(?= |$)"))
                 .collect(Collectors.toList());
 
         model.addAttribute("annonces", annonces);
