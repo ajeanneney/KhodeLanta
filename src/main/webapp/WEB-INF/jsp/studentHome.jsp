@@ -10,13 +10,23 @@
 </head>
 <body>
 
-<div class="page">
-    <h1>Bienvenue</h1>
+<div class="d-flex justify-content-center flex-nowrap">
+    <h1>Page pour étudiants</h1>
+    <a href="/student/search">Rechercher une annonce</a>
     <div class="shadow rounded p-5 m-2 border border-secondary">
-        Prenom : ${user.firstname}<br>
-        Nom : ${user.lastname}<br>
-        Mail : ${user.mail}<br>
+        <c:forEach items="${annonces}" var="a">
+            ${a.title}<br>
+            ${a.description}<br>
+            ${a.city.name}<br>
+            <c:forEach items="${a.categories}" var="c">
+                ${c.name}<br>
+                ${c.description}<br>
+                <br>
+            </c:forEach>
+            <br><br>
+        </c:forEach>
     </div>
+</div>
 </div>
 
 </body>
