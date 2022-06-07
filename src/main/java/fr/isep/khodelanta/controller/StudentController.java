@@ -139,13 +139,15 @@ public class StudentController {
         if(city != null){recherche.setCity(City.valueOf(city));}
         if(!date.isEmpty()){recherche.setDate(Date.valueOf(date));}
 
+        List<Categorie> rechercheCategories = null;
         if(categories != null ) {
-            List<Categorie> rechercheCategories =
+            rechercheCategories =
                     Arrays.stream(categories).map(n -> categorieDao.findById(n).orElse(null)).collect(Collectors.toList());
             recherche.setCategories(rechercheCategories);
         }
 
         model.addAttribute("recherche", recherche);
+        Annonce annonces = annonceDao.search(title, City.valueOf(city), rechercheCategories);
 
         rechercheDao.save(recherche);
 

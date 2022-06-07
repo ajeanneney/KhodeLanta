@@ -18,9 +18,9 @@
         <c:when test="${recherches.size() != 0}">
         <div class="form-group shadow rounded border border-secondary p-3 m-3">
             <h2>Recherches récentes</h2>
-            <i><a href="${urls[urls.size()-1]}">${recherches[recherches.size()-1].title}</a></i><br>
-            <i><a href="${urls[urls.size()-2]}">${recherches[recherches.size()-2].title}</a></i><br>
-            <i><a href="${urls[urls.size()-3]}">${recherches[recherches.size()-3].title}</a></i><br>
+            Rechercher à nouveau : <i><a href="${urls[urls.size()-1]}">${recherches[recherches.size()-1].title}</a></i><br>
+            Rechercher à nouveau : <i><a href="${urls[urls.size()-2]}">${recherches[recherches.size()-2].title}</a></i><br>
+            Rechercher à nouveau : <i><a href="${urls[urls.size()-3]}">${recherches[recherches.size()-3].title}</a></i><br>
         </div>
         </c:when>
         </c:choose>
