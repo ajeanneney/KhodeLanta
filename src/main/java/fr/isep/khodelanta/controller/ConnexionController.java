@@ -63,6 +63,7 @@ public class ConnexionController {
         Map<String, String[]> paramMap = formRequest.getParameterMap();
 
         if(paramMap.containsKey("firstname") && paramMap.containsKey("lastname") && paramMap.containsKey("mail") && paramMap.containsKey("password")){
+            System.out.println(Arrays.toString(paramMap.get("firstname")));
             User user = new User(
                     paramMap.get("firstname")[0],
                     paramMap.get("lastname")[0],
@@ -72,11 +73,7 @@ public class ConnexionController {
             );
             if(userDao.findByMail(user.getMail()) == null) {
                 Long newUserId = userDao.saveAndFlush(user).getId();
-                PersonType userType = userDao.saveAndFlush(user).getPersonType();
-
                 request.getSession().setAttribute("userId", newUserId.toString());
-                request.getSession().setAttribute("userType", userType.toString());
-
                 if(user.getPersonType() == PersonType.ADMIN){return "redirect:admin/home";}
                 if(user.getPersonType() == PersonType.STUDENT){return "redirect:student/home";}
                 if(user.getPersonType() == PersonType.OLD){return "redirect:old/home";}
