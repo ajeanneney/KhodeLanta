@@ -12,7 +12,7 @@
 <h1>Home</h1>
 <a href="/old/newannonce">nouvelle annonce</a>
 <div class="d-flex justify-content-around">
-
+    <a href="editProfile">Modifier mon profil</a>
     <div class="shadow rounded p-5 m-2 border border-secondary">
         Prenom : ${user.firstname}<br>
         Nom : ${user.lastname}<br>
