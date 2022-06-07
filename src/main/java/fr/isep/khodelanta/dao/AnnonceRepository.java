@@ -12,5 +12,4 @@ public interface AnnonceRepository extends JpaRepository<Annonce, Long> {
     //filtre en fonction du prix
     @Query("select u from Annonce u where u.isverified = :x")
     public List<Annonce> findByIsverified(@Param("x")boolean isverified);
-
 }

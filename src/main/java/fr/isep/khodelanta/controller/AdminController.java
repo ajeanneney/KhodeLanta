@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Arrays;
 
 @Controller
 public class AdminController {
@@ -32,7 +33,9 @@ public class AdminController {
             Model model,
             HttpServletRequest request,
             @RequestParam(name = "name", required = false) String name,
-            @RequestParam(name = "description", required = false) String description){
+            @RequestParam(name = "description", required = false) String description,
+            @RequestParam(name = "isVerified", required = false) Boolean isVerified,
+            @RequestParam(name = "idAnnonce", required = false)String idAnnonce){
 
 
         String userId = (String) request.getSession().getAttribute("userId");
@@ -46,7 +49,14 @@ public class AdminController {
             categorieDao.save(categorie);
         }
 
+        if(isVerified && !idAnnonce.isEmpty()){
+
+        }
+
         model.addAttribute("annonces", annonceDao.findAll());
+        model.addAttribute("annoncesIsVerified",annonceDao.findByIsverified(true));
+        model.addAttribute("annoncesIsNotVerified", annonceDao.findByIsverified(false));
+
         return "adminHome";
     }
 

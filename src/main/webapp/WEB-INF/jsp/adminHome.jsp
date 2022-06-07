@@ -9,10 +9,11 @@
     <jsp:include page="header.jsp"/>
 </head>
 <body>
+
 <div class="page">
 <div class="admin">
     <h1>Annonces à vérifier</h1>
-    <c:forEach items="${annonces}" var="a">
+    <c:forEach items="${annoncesIsNotVerified}" var="a">
         <div class="validate_annonce">
             ${a.title}<br>
             ${a.description}<br>
@@ -22,11 +23,15 @@
                 ${c.description}<br>
                 <br>
             </c:forEach>
-            <button type="submit" class="btn btn-primary m-2">Valider</button>
-             <button type="submit" class="btn btn-primary m-2">Refuser</button>
+</div>
+                <form method="post" action="">
+                    <button type="submit" class="btn btn-primary m-2">Valider</button>
+                    <button type="submit" class="btn btn-primary m-2">Refuser</button>
+                </form>
         </div>
     </c:forEach>
 </div>
+
 
 <div class="d-flex justify-content-center flex-nowrap">
     <form action="" method="post">
