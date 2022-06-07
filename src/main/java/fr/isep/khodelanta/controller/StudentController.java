@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpSession;
 
@@ -147,9 +148,13 @@ public class StudentController {
         }
 
         model.addAttribute("recherche", recherche);
-//        Annonce annonces = annonceDao.search(title, City.valueOf(city), rechercheCategories);
-
         rechercheDao.save(recherche);
+
+        List<Annonce> annonces = annonceDao.findAll().stream()
+                .filter(a -> a.getTitle().matches(".*"+title+"*."))
+                .collect(Collectors.toList());
+
+        model.addAttribute("annonces", annonces);
 
         return "searchResult";
     }

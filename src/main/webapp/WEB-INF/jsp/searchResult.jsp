@@ -14,6 +14,21 @@
 <h1>Résultat de votre recherche</h1>
 </div>
 
+<c:forEach items="${annonces}" var="a">
+    <div class="shadow rounded p-5 m-2 border border-secondary">
+            ${a.title}<br>
+            ${a.description}<br>
+            ${a.adresse}<br>
+            ${a.date}<br>
+        <c:forEach items="${a.categories}" var="c">
+            ${c.name}<br>
+            ${c.description}<br>
+            <br>
+        </c:forEach>
+        <br>
+    </div>
+</c:forEach>
+
 </body>
 </html>
 

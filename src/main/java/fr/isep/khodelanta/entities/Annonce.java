@@ -2,7 +2,6 @@ package fr.isep.khodelanta.entities;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import org.springframework.core.SpringVersion;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -35,7 +34,7 @@ public class Annonce {
     @ManyToMany
     private List<Categorie> categories;
 
-    private Date date;
+    private java.sql.Date date;
 
     public Annonce() {
     }
@@ -50,6 +49,14 @@ public class Annonce {
         this.adresse = adresse;
         this.isverified = isverified;
         this.date = java.sql.Date.valueOf(date);
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(java.sql.Date date) {
+        this.date = date;
     }
 
     public String getAdresse() {
