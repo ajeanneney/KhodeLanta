@@ -22,6 +22,10 @@
                 <a href="/old/profile"><h2>Profil</h2></a>
                 <a href="/disconnect"><h2>Se déconnecter</h2></a>
             </c:when>
+            <c:when test="${sessionScope.userType == ADMIN}">
+                <a href="/student/search"><h2>Annonces</h2></a>
+                <a href="/disconnect"><h2>Se déconnecter</h2></a>
+            </c:when>
             <c:otherwise>
                 <a href="/"><h2>Accueil</h2></a>
                 <a href="/old/newannonce"><h2>Publier une annonce</h2></a>
