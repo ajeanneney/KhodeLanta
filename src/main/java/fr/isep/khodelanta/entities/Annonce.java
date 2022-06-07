@@ -21,6 +21,8 @@ public class Annonce {
 
     private String description;
 
+    private City city;
+
     private String adresse;
 
     @ManyToMany
@@ -29,19 +31,22 @@ public class Annonce {
     public Annonce() {
     }
 
-    public Annonce(User owner, String title, String description, String adresse) {
+
+    public Annonce(User owner, String title, String description, String adresse, City city, List<Categorie> categories) {
         this.owner = owner;
         this.title = title;
         this.description = description;
+        this.city = city;
+        this.categories = categories;
         this.adresse = adresse;
     }
 
-    public Annonce(User owner, String title, String description, String adresse, List<Categorie> categories) {
-        this.owner = owner;
-        this.title = title;
-        this.description = description;
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
         this.adresse = adresse;
-        this.categories = categories;
     }
 
     public Long getId() {
@@ -76,12 +81,12 @@ public class Annonce {
         this.description = description;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public City getCity() {
+        return city;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setCity(City city) {
+        this.city = city;
     }
 
     public List<Categorie> getCategories() {

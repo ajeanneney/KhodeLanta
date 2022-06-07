@@ -22,7 +22,15 @@
             <label for="description">Description de l'annonce</label><textarea name="description" id="description" placeholder="Description de votre annonce" class="form-control" required></textarea>
         </div>
         <div class="form-group p-2">
-            <label for="adresse">Adresse</label><input type="text" name="adresse" id="adresse" class="form-control" required>
+            <label for="adresse">Adresse</label><input type="text" name="adresse" id="adresse" placeholder="Votre adresse" class="form-control" required>
+        </div>
+        <div class="form-group p-2">
+            <select name="city" id="city" class="form-select">
+                <option value="" selected disabled>Choisisez une région</option>
+                <c:forEach items="${cities}" var="c">
+                    <option value="${c}">${c.name}</option>
+                </c:forEach>
+            </select>
         </div>
             <c:forEach items="${categories}" var="c">
                 <input class="form-check-input" type="checkbox" name="categories" value="${c.id}">
