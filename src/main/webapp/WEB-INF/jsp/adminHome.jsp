@@ -18,6 +18,7 @@
             ${a.title}<br>
             ${a.description}<br>
             ${a.adresse}<br>
+            ${a.date}<br>
             <c:forEach items="${a.categories}" var="c">
                 ${c.name}<br>
                 ${c.description}<br>

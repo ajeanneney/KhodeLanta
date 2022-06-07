@@ -14,17 +14,18 @@
     <h1>Page pour étudiants</h1>
     <a href="/student/search">Rechercher une annonce</a>
     <div class="shadow rounded p-5 m-2 border border-secondary">
-        <c:forEach items="${annonces}" var="a">
-            ${a.title}<br>
-            ${a.description}<br>
-            ${a.city.name}<br>
-            <c:forEach items="${a.categories}" var="c">
-                ${c.name}<br>
-                ${c.description}<br>
-                <br>
-            </c:forEach>
-            <br><br>
-        </c:forEach>
+                <c:forEach items="${annonces}" var="a">
+                    ${a.title}<br>
+                    ${a.description}<br>
+                    ${a.city.name}<br>
+                    ${a.date}<br>
+                    <c:forEach items="${a.categories}" var="c">
+                        ${c.name}<br>
+                        ${c.description}<br>
+                        <br>
+                    </c:forEach>
+                    <br><br>
+                </c:forEach>
     </div>
 </div>
 </div>

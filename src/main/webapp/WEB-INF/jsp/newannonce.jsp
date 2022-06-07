@@ -37,6 +37,7 @@
                     <option value="${c}">${c.name}</option>
                 </c:forEach>
             </select>
+            <label for="date"> Date de l'annonce</label><input type="date" name="date" id="date"  class="form-control" required>
         </div>
             <c:forEach items="${categories}" var="c">
                 <input class="form-check-input" type="checkbox" name="categories" value="${c.id}">

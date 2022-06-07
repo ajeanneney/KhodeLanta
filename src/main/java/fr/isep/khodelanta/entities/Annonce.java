@@ -4,7 +4,9 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.util.Date;
+
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -31,33 +33,26 @@ public class Annonce {
     @Column(columnDefinition = "boolean default false")
     private Boolean isverified;
 
+    private Date date;
+
     @ManyToMany
     private List<Categorie> categories;
-
-    private java.sql.Date date;
 
     public Annonce() {
     }
 
-    public Annonce(User owner, String title, String description, String adresse, City city, String prix, List<Categorie> categories,Boolean isverified, String date) {
+    public Annonce(User owner, String title, String description, String adresse, City city, String prix, List<Categorie> categories, Boolean isverified, String date) {
         this.owner = owner;
         this.title = title;
         this.description = description;
         this.city = city;
-        this.prix = prix; 
+        this.prix = prix;
         this.categories = categories;
         this.adresse = adresse;
+        this.date = Date.valueOf(date);
         this.isverified = isverified;
-        this.date = java.sql.Date.valueOf(date);
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(java.sql.Date date) {
-        this.date = date;
-    }
 
     public String getAdresse() {
         return adresse;
@@ -125,5 +120,13 @@ public class Annonce {
 
     public void setCategories(List<Categorie> categories) {
         this.categories = categories;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = Date.valueOf(date);
     }
 }
