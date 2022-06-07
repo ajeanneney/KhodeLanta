@@ -30,7 +30,7 @@ public class OldController {
         if(userDao.findById(Long.valueOf(userId)).get().getPersonType() != PersonType.OLD){return "redirect:/";}
         User user = userDao.findById(Long.valueOf(userId)).orElse(null);
         model.addAttribute("user", user);
-        model.addAttribute("annonces", annonceDao.findAll());
+        model.addAttribute("annonces", annonceDao.findByIsverified(true));
         return "oldHome";
     }
 

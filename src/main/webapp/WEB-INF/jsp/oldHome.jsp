@@ -19,7 +19,6 @@
         Mail : ${user.mail}<br>
     </div>
     <c:forEach items="${annonces}" var="a">
-        <c:when test="${a.isVerfied}">
             <div class="shadow rounded p-5 m-2 border border-secondary">
                     ${a.title}<br>
                     ${a.description}<br>
@@ -31,7 +30,6 @@
                 </c:forEach>
                 <br><br>
             </div>
-        </c:when>
     </c:forEach>
 </div>
 
