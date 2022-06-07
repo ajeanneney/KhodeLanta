@@ -28,9 +28,6 @@
             <label for="adresse">Adresse</label><input type="text" name="adresse" id="adresse" placeholder="Votre adresse" class="form-control" required>
         </div>
         <div class="form-group p-2">
-            <label for="date">Date</label><input type="date" name="date" id="date" class="form-control" required>
-        </div>
-        <div class="form-group p-2">
             <select name="city" id="city" class="form-select">
                 <option value="" selected disabled>Choisisez une région</option>
                 <c:forEach items="${cities}" var="c">
