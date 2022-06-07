@@ -9,11 +9,12 @@
     <jsp:include page="header.jsp"/>
 </head>
 <body>
-<div class="page">
-<div class="admin">
-    <h1>Annonces à vérifier</h1>
+<div class="d-flex justify-content-center flex-nowrap">
+    <h1>Page pour l'admin</h1>
+</div>
+<div class="d-flex justify-content-center flex-nowrap">
     <c:forEach items="${annonces}" var="a">
-        <div class="validate_annonce">
+        <div class="shadow rounded p-5 m-2 border border-secondary">
             ${a.title}<br>
             ${a.description}<br>
             ${a.adresse}<br>
@@ -22,28 +23,29 @@
                 ${c.description}<br>
                 <br>
             </c:forEach>
-            <button type="submit" class="btn btn-primary m-2">Valider</button>
-             <button type="submit" class="btn btn-primary m-2">Refuser</button>
+            <br><br>
         </div>
     </c:forEach>
 </div>
 
 <div class="d-flex justify-content-center flex-nowrap">
-    <form action="" method="post">
-        <h3>Ajouter une catégorie</h3>
+    <form action="" method="post" class="shadow rounded p-3 m-3">
+        <h3>Ajouter une catégorie :</h3>
 
-        <div class="item">
+        <div class="form-group p-2">
             <label for="name">Nom de la catégorie : </label>
             <input type="text" name="name" id="name" class="form-control">
         </div>
-        <div class="item">
+        <div class="form-group p-2">
             <label for="description">Description de la catégorie : </label>
             <input type="text" name="description" id="description" class="form-control">
         </div>
+        <div class="form-group p-2 d-flex justify-content-center">
             <button type="submit" class="btn btn-primary m-2">Ajouter la catégorie</button>
+        </div>
     </form>
 </div>
-</div>
+
 
 </body>
 </html>

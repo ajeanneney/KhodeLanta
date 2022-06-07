@@ -17,10 +17,6 @@
             <c:when test="${sessionScope.userId == null}">
                 <span class="navbar-brand mb-0 h1 text-light"><a href="/signup">Connexion/Inscription</a></span>
             </c:when>
-            <c:when test="${sessionScope.userType == ADMIN}">
-                <a href="/student/search"><h2>Annonces</h2></a>
-                <a href="/disconnect"><h2>Se déconnecter</h2></a>
-            </c:when>
             <c:otherwise>
             <span class="navbar-brand mb-0 h1 text-light"><a href="/disconnect">Se déconnecter</a><span>
             </c:otherwise>

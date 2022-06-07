@@ -5,7 +5,7 @@ html, body, #page {
     padding: 0;
     color: #5164AE;
     background-color: #E8EDF5;
-    font-family: "Verdana";
+    font-family: Roboto;
 }
 
 a {
@@ -291,6 +291,7 @@ select:focus {
 }
 
 .annonce {
+    height: 300px;
     border: 5px solid #5164AE;
     border-radius: 30px;
     padding: 20px;
@@ -336,6 +337,7 @@ button {
     background-color: #5164AE;
     cursor: pointer;
     padding: 0 20px 0 20px;
+    width: 50%;
 }
 
 button:hover {
@@ -381,20 +383,6 @@ button:hover {
 
 .line {
     width: 5px;
-    background-color: #6EA570;
-}
 
-/*Admin*/
-.admin {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.validate_annonce {
-    border: 5px solid #5164AE;
-    border-radius: 30px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    background-color: #6EA570;
 }
