@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -88,6 +90,28 @@ public class StudentController {
         User user = userDao.findById(Long.valueOf(userId)).orElse(null);
         if(user.getPersonType() != PersonType.STUDENT){return "redirect:/connexion";}
 
+        List<String> urls = new ArrayList<>();
+        for(Recherche recherche : rechercheDao.findAll()){
+            String url = "";
+            url += "/student/search/result?";
+            if(recherche.getTitle() != null){
+                url += "title=" + recherche.getTitle() + "&";
+            }
+            if(recherche.getCity() != null){
+                url += "city=" + recherche.getCity() + "&";
+            }
+            if(recherche.getDate() != null){
+                url += "date=" + new SimpleDateFormat("yyyy-MM-dd").format(recherche.getDate()) + "&";
+            }
+            if(recherche.getCategories() != null){
+                for(Categorie categorie : recherche.getCategories()){
+                    url += "categories=" + categorie.getId() + "&";
+                }
+            }
+            urls.add(url);
+        }
+
+        model.addAttribute("urls", urls);
         model.addAttribute("cities", City.values());
         model.addAttribute("categories", categorieDao.findAll());
         model.addAttribute("recherches", rechercheDao.findAll());
@@ -120,6 +144,8 @@ public class StudentController {
                     Arrays.stream(categories).map(n -> categorieDao.findById(n).orElse(null)).collect(Collectors.toList());
             recherche.setCategories(rechercheCategories);
         }
+
+        model.addAttribute("recherche", recherche);
 
         rechercheDao.save(recherche);
 

@@ -10,8 +10,9 @@
 </head>
 
 <body>
-
-<h1>coucou</h1>
+<div class="d-flex justify-content-center flex-nowrap">
+<h1>Résultat de votre recherche</h1>
+</div>
 
 </body>
 </html>
