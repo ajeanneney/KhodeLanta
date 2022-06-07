@@ -28,8 +28,6 @@ public class Annonce {
 
     private String adresse;
 
-    private String prix;
-
     @Column(columnDefinition = "boolean default false")
     private Boolean isverified;
 
@@ -100,14 +98,6 @@ public class Annonce {
 
     public void setCity(City city) {
         this.city = city;
-    }
-
-    public String getPrix() {
-        return prix;
-    }
-
-    public void setPrix(String prix) {
-        this.prix = prix;
     }
 
     public boolean getIsverified() {return isverified;}
