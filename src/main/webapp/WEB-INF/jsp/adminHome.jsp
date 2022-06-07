@@ -24,7 +24,6 @@
                 ${c.description}<br>
                 <br>
             </c:forEach>
-            <br><br>
         </div>
     </c:forEach>
 </div>
