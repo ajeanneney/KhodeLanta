@@ -30,6 +30,7 @@
             <div class="shadow rounded p-5 m-2 border border-secondary">
                     ${a.title}<br>
                     ${a.description}<br>
+                    ${a.price}€<br>
                     ${a.adresse}<br>
                     ${a.date}<br>
                 <c:forEach items="${a.categories}" var="c">
@@ -53,6 +54,7 @@
             <div class="shadow rounded p-5 m-2 border border-secondary">
                     ${a.title}<br>
                     ${a.description}<br>
+                    ${a.price}€<br>
                     ${a.adresse}<br>
                     ${a.date}<br>
                 <c:forEach items="${a.categories}" var="c">

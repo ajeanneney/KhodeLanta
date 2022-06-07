@@ -29,6 +29,7 @@ public class Annonce {
     private String adresse;
 
     private Date date;
+    private int price;
 
     @ManyToMany
     private List<Categorie> categories;
@@ -36,7 +37,7 @@ public class Annonce {
     public Annonce() {
     }
 
-    public Annonce(User owner, String title, String description, String adresse, City city, List<Categorie> categories, String date) {
+    public Annonce(User owner, String title, String description, String adresse, City city, List<Categorie> categories, String date, String price) {
         this.owner = owner;
         this.title = title;
         this.description = description;
@@ -44,6 +45,7 @@ public class Annonce {
         this.categories = categories;
         this.adresse = adresse;
         this.date = Date.valueOf(date);
+        this.price = Integer.parseInt(price);
     }
 
     public String getAdresse() {
@@ -108,5 +110,13 @@ public class Annonce {
 
     public void setDate(String date) {
         this.date = Date.valueOf(date);
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
