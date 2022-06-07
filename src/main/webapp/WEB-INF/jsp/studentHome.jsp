@@ -23,7 +23,7 @@
             <b>Description : </b>${a.description}<br>
             <b>Localisation : </b>${a.city.name}<br>
             <b>Date : </b>${a.date}<br>
-            <b>Prix : </b>${a.price}<br>
+            <b>Prix : </b>${a.price} €<br>
             <b>Catégories : </b><br>
             <c:forEach items="${a.categories}" var="c">
                 <div class="shadow rounded p-2 m-2 border border-secondary">

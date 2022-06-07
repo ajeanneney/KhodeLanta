@@ -14,20 +14,34 @@
 <h1>Résultat de votre recherche</h1>
 </div>
 
-<c:forEach items="${annonces}" var="a">
+<div class="d-flex justify-content-center flex-nowrap">
     <div class="shadow rounded p-5 m-2 border border-secondary">
-            ${a.title}<br>
-            ${a.description}<br>
-            ${a.adresse}<br>
-            ${a.date}<br>
-        <c:forEach items="${a.categories}" var="c">
-            ${c.name}<br>
-            ${c.description}<br>
-            <br>
-        </c:forEach>
-        <br>
+    <c:choose>
+    <c:when test="${annonces.size() == 0}">
+        <h2>Il n'y a aucune annonce correspondant à vos critères !</h2>
+    </c:when>
+    </c:choose>
+    <c:forEach items="${annonces}" var="a">
+        <div class="shadow rounded p-2 m-2 border border-secondary">
+            <b>Titre :</b> ${a.title}<br>
+            <b>Description : </b>${a.description}<br>
+            <b>Localisation : </b>${a.city.name}<br>
+            <b>Date : </b>${a.date}<br>
+            <b>Prix : </b>${a.price} €<br>
+            <b>Catégories : </b><br>
+            <c:forEach items="${a.categories}" var="c">
+                <div class="shadow rounded p-2 m-2 border border-secondary">
+                    <b>Catégorie : </b>${c.name}<br>
+                    <b>Description : </b>${c.description}
+                </div>
+            </c:forEach>
+        </div>
+    </c:forEach>
+        <div class="d-flex justify-content-center">
+        <a href="/student/search"><button class="btn btn-secondary m-2">Retour à la recherche</button></a>
+        </div>
     </div>
-</c:forEach>
+</div>
 
 </body>
 </html>

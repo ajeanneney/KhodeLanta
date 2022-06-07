@@ -126,7 +126,7 @@ public class StudentController {
             HttpServletRequest request,
             @RequestParam(value = "title", required = false)String title,
             @RequestParam(value = "city", required = false)String city,
-            @RequestParam(value = "date", required = false)String date,
+            @RequestParam(value = "date", required = false, defaultValue = "")String date,
             @RequestParam(value = "categories", required = false) Long[] categories){
 
         String userId = (String) request.getSession().getAttribute("userId");
@@ -138,7 +138,7 @@ public class StudentController {
         recherche.setUser(user);
         if(title != null){recherche.setTitle(title);}
         if(city != null){recherche.setCity(City.valueOf(city));}
-        if(!date.isEmpty()){recherche.setDate(Date.valueOf(date));}
+        if(date != null && !date.isEmpty()){recherche.setDate(Date.valueOf(date));}
 
         List<Categorie> rechercheCategories = null;
         if(categories != null ) {
@@ -151,8 +151,13 @@ public class StudentController {
         rechercheDao.save(recherche);
 
         List<Annonce> annonces = annonceDao.findAll().stream()
-                .filter(a -> a.getTitle().matches("(?i)(?<= |^)"+title+"(?= |$)"))
+                .filter(
+                        annonce ->
+                                (title != null && annonce.getTitle().matches("(?i)(?<= |^)" + title + "(?= |$)")) ||
+                                (city != null && annonce.getCity() == City.valueOf(city)) ||
+                                (!date.equals("") && Objects.equals(annonce.getDate().toString(), date)))
                 .collect(Collectors.toList());
+
 
         model.addAttribute("annonces", annonces);
 
