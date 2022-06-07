@@ -1,7 +1,5 @@
 package fr.isep.khodelanta.entities;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +19,9 @@ public class Categorie {
 
     @ManyToMany
     private List<Annonce> annonces;
+
+    @ManyToMany
+    private List<Recherche> recherches;
 
     public Categorie() {
     }
@@ -60,5 +61,13 @@ public class Categorie {
 
     public void setAnnonces(List<Annonce> annonces) {
         this.annonces = annonces;
+    }
+
+    public List<Recherche> getRecherches() {
+        return recherches;
+    }
+
+    public void setRecherches(List<Recherche> recherches) {
+        this.recherches = recherches;
     }
 }

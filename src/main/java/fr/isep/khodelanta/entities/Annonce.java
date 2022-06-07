@@ -28,6 +28,11 @@ public class Annonce {
 
     private String adresse;
 
+    private String prix;
+
+    @Column(columnDefinition = "boolean default false")
+    private Boolean isverified;
+
     private Date date;
 
     @ManyToMany
@@ -36,15 +41,18 @@ public class Annonce {
     public Annonce() {
     }
 
-    public Annonce(User owner, String title, String description, String adresse, City city, List<Categorie> categories, String date) {
+    public Annonce(User owner, String title, String description, String adresse, City city, String prix, List<Categorie> categories, Boolean isverified, String date) {
         this.owner = owner;
         this.title = title;
         this.description = description;
         this.city = city;
+        this.prix = prix;
         this.categories = categories;
         this.adresse = adresse;
         this.date = Date.valueOf(date);
+        this.isverified = isverified;
     }
+
 
     public String getAdresse() {
         return adresse;
@@ -93,6 +101,18 @@ public class Annonce {
     public void setCity(City city) {
         this.city = city;
     }
+
+    public String getPrix() {
+        return prix;
+    }
+
+    public void setPrix(String prix) {
+        this.prix = prix;
+    }
+
+    public boolean getIsverified() {return isverified;}
+
+    public void setIsverified(Boolean verified) { this.isverified = isverified;}
 
     public List<Categorie> getCategories() {
         return categories;
