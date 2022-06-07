@@ -54,7 +54,7 @@ public class AnnonceController {
                     Arrays.stream(categories).map(n->{
                         return categorieDao.findById(n).orElse(null);
                     }).collect(Collectors.toList());
-
+          
             Annonce annonce = new Annonce(user, title, description, adresse, City.valueOf(city), annonceCategories, date);
             annonceDao.save(annonce);
             return "redirect:/";

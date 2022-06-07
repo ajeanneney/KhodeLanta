@@ -4,33 +4,14 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Annonces</title>
+    <title>Connexion</title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
     <jsp:include page="header.jsp"/>
 </head>
-
 <body>
 <div class="page2">
     <div class="filtres">
         <h2>Filtres</h2>
-        <%--<form action="/student/search/result" method="get" class="shadow rounded p-3 m-3">
-            <h1>Recherche avancée d'annonces</h1>
-            <div class="form-group p-2">
-                <label for="title">Titre de la demande</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Titre de la demande">
-            </div>
-            <div class="form-group p-2">
-                <select name="city" id="city" class="form-select">
-                    <option value="" selected disabled>Choisisez une ville</option>
-                    <c:forEach items="${cities}" var="c">
-                        <option value="${c}">${c.name}</option>
-                    </c:forEach>
-                </select>
-            </div>
-            <div class="form-group p-2 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary m-2">Rechercher</button>
-            </div>
-        </form>--%>
     </div>
     <div class="right">
         <div class="searchBar">
@@ -68,6 +49,8 @@
             </div>
         </c:forEach>
     </div>
+</div>
+
 </div>
 
 </body>
