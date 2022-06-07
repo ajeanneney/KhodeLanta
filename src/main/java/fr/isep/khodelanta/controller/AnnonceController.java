@@ -54,7 +54,7 @@ public class AnnonceController {
                         return categorieDao.findById(n).orElse(null);
                     }).collect(Collectors.toList());
 
-            Annonce annonce = new Annonce(user, title, description, adresse, City.valueOf(city),prix, annonceCategories);
+            Annonce annonce = new Annonce(user, title, description, adresse, City.valueOf(city),prix, annonceCategories,false);
             annonceDao.save(annonce);
             return "redirect:/";
         }

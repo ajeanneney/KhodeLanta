@@ -18,6 +18,21 @@
         Nom : ${user.lastname}<br>
         Mail : ${user.mail}<br>
     </div>
+    <c:forEach items="${annonces}" var="a">
+        <c:when test="${a.isVerfied}">
+            <div class="shadow rounded p-5 m-2 border border-secondary">
+                    ${a.title}<br>
+                    ${a.description}<br>
+                    ${a.adresse}<br>
+                <c:forEach items="${a.categories}" var="c">
+                    ${c.name}<br>
+                    ${c.description}<br>
+                    <br>
+                </c:forEach>
+                <br><br>
+            </div>
+        </c:when>
+    </c:forEach>
 </div>
 
 </body>

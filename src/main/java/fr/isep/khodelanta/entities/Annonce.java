@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 public class Annonce {
     @Id
+
     @GeneratedValue
     private Long id;
 
@@ -27,6 +28,9 @@ public class Annonce {
 
     private String prix;
 
+    @Column(columnDefinition = "boolean default false")
+    private Boolean isverified;
+
     @ManyToMany
     private List<Categorie> categories;
 
@@ -34,7 +38,7 @@ public class Annonce {
     }
 
 
-    public Annonce(User owner, String title, String description, String adresse, City city, String prix, List<Categorie> categories) {
+    public Annonce(User owner, String title, String description, String adresse, City city, String prix, List<Categorie> categories,Boolean isverified) {
         this.owner = owner;
         this.title = title;
         this.description = description;
@@ -42,6 +46,7 @@ public class Annonce {
         this.prix = prix; 
         this.categories = categories;
         this.adresse = adresse;
+        this.isverified = isverified;
     }
 
     public String getAdresse() {
@@ -99,6 +104,10 @@ public class Annonce {
     public void setPrix(String prix) {
         this.prix = prix;
     }
+
+    public boolean getIsverified() {return isverified;}
+
+    public void setIsverified(Boolean verified) { this.isverified = isverified;}
 
     public List<Categorie> getCategories() {
         return categories;

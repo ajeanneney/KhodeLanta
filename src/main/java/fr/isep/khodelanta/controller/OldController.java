@@ -31,7 +31,6 @@ public class OldController {
         User user = userDao.findById(Long.valueOf(userId)).orElse(null);
         model.addAttribute("user", user);
         model.addAttribute("annonces", annonceDao.findAll());
-        System.out.println("Voici le status "+userDao.findById(Long.valueOf(userId)).get().getPersonType());
         return "oldHome";
     }
 
