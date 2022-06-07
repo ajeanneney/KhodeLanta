@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpSession;
 
@@ -150,12 +147,14 @@ public class StudentController {
         model.addAttribute("recherche", recherche);
         rechercheDao.save(recherche);
 
+        List<Categorie> finalRechercheCategories = rechercheCategories;
         List<Annonce> annonces = annonceDao.findAll().stream()
                 .filter(
                         annonce ->
                                 (title != null && annonce.getTitle().matches("(?i)(?<= |^)" + title + "(?= |$)")) ||
                                 (city != null && annonce.getCity() == City.valueOf(city)) ||
-                                (!date.equals("") && Objects.equals(annonce.getDate().toString(), date)))
+                                (!date.equals("") && Objects.equals(annonce.getDate().toString(), date)) ||
+                                (categories != null && !Collections.disjoint(finalRechercheCategories, annonce.getCategories())))
                 .collect(Collectors.toList());
 
 
