@@ -25,6 +25,8 @@ public class Annonce {
 
     private String adresse;
 
+    private String prix;
+
     @ManyToMany
     private List<Categorie> categories;
 
@@ -32,11 +34,12 @@ public class Annonce {
     }
 
 
-    public Annonce(User owner, String title, String description, String adresse, City city, List<Categorie> categories) {
+    public Annonce(User owner, String title, String description, String adresse, City city, String prix, List<Categorie> categories) {
         this.owner = owner;
         this.title = title;
         this.description = description;
         this.city = city;
+        this.prix = prix; 
         this.categories = categories;
         this.adresse = adresse;
     }
@@ -87,6 +90,14 @@ public class Annonce {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public String getPrix() {
+        return prix;
+    }
+
+    public void setPrix(String prix) {
+        this.prix = prix;
     }
 
     public List<Categorie> getCategories() {
