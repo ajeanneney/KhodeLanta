@@ -37,7 +37,8 @@ public class AnnonceController {
         @RequestParam(value = "title", defaultValue = "") String title,
         @RequestParam(value = "description", defaultValue = "") String description,
         @RequestParam(value = "adresse", defaultValue = "") String adresse,
-        @RequestParam(value = "categories", required = false) Long[] categories
+        @RequestParam(value = "categories", required = false) Long[] categories,
+        @RequestParam(value = "date", required = false) String date
     ){
 
         String userId = (String) request.getSession().getAttribute("userId");
@@ -51,7 +52,7 @@ public class AnnonceController {
                         return categorieDao.findById(n).orElse(null);
                     }).collect(Collectors.toList());
 
-            Annonce annonce = new Annonce(user, title, description, adresse, annonceCategories);
+            Annonce annonce = new Annonce(user, title, description, adresse, annonceCategories, date);
             annonceDao.save(annonce);
             return "redirect:/";
         }

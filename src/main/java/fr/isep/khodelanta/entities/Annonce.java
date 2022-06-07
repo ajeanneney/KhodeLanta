@@ -3,10 +3,9 @@ package fr.isep.khodelanta.entities;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.*;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class Annonce {
 
     private String adresse;
 
-    @JsonFormat(pattern = "yyyy-MM-dd") LocalDate date;
+    private Date date;
 
     @ManyToMany
     private List<Categorie> categories;
@@ -35,19 +34,21 @@ public class Annonce {
     public Annonce() {
     }
 
-    public Annonce(User owner, String title, String description, String adresse) {
+    public Annonce(User owner, String title, String description, String adresse, String date) {
         this.owner = owner;
         this.title = title;
         this.description = description;
         this.adresse = adresse;
+        this.date = Date.valueOf(date);
     }
 
-    public Annonce(User owner, String title, String description, String adresse, List<Categorie> categories) {
+    public Annonce(User owner, String title, String description, String adresse, List<Categorie> categories, String date) {
         this.owner = owner;
         this.title = title;
         this.description = description;
         this.adresse = adresse;
         this.categories = categories;
+        this.date = Date.valueOf(date);
     }
 
     public Long getId() {
@@ -98,11 +99,11 @@ public class Annonce {
         this.categories = categories;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
     public void setDate(String date) {
-        this.date = LocalDate.parse(date);
+        this.date = Date.valueOf(date);
     }
 }

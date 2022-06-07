@@ -22,6 +22,9 @@
             <label for="description">Description de l'annonce</label><textarea name="description" id="description" placeholder="Description de votre annonce" class="form-control" required></textarea>
         </div>
         <div class="form-group p-2">
+            <label for="date"> Date de l'annonce</label><input type="date" name="date" id="date"  class="form-control" required>
+        </div>
+        <div class="form-group p-2">
             <label for="adresse">Adresse</label><input type="text" name="adresse" id="adresse" class="form-control" required>
         </div>
             <c:forEach items="${categories}" var="c">

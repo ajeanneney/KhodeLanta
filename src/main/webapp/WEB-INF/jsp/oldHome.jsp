@@ -18,6 +18,13 @@
         Nom : ${user.lastname}<br>
         Mail : ${user.mail}<br>
     </div>
+
+</div>
+
+<div class="d-flex justify-content-around">
+    <div class="p-5 m-2">
+        Aujourd'hui :
+    </div>
 </div>
 
 </body>
