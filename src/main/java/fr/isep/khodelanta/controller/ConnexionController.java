@@ -68,8 +68,18 @@ public class ConnexionController {
             );
             if(userDao.findByMail(user.getMail()) == null) {
                 Long newUserId = userDao.saveAndFlush(user).getId();
+                PersonType userType = userDao.saveAndFlush(user).getPersonType();
+
                 request.getSession().setAttribute("userId", newUserId.toString());
+<<<<<<< Updated upstream
                 return "redirect:home";
+=======
+                request.getSession().setAttribute("userType", userType.toString());
+
+                if(user.getPersonType() == PersonType.ADMIN){return "redirect:admin/home";}
+                if(user.getPersonType() == PersonType.STUDENT){return "redirect:student/home";}
+                if(user.getPersonType() == PersonType.OLD){return "redirect:old/home";}
+>>>>>>> Stashed changes
             } else{
                 return "signup";
             }

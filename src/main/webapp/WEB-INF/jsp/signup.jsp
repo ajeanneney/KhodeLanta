@@ -9,34 +9,44 @@
 </head>
 <body>
 
-<div class="d-flex justify-content-center flex-nowrap">
-    <form action="/signup" method="post" class="shadow rounded p-3 m-3">
-        <h1>Page d'inscription</h1>
-        <div class="row">
-        <div class="form-group p-2 col">
+<div class="page">
+    <div class="form">
+    <form action="/signup" method="post">
+        <h1>S'inscrire</h1>
+        <div class="item">
             <label for="firstname">Prénom</label>
             <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Entrez votre prénom" required>
         </div>
-        <div class="form-group p-2 col">
+        <div class="item">
             <label for="lastname">Nom</label>
             <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Entrez votre nom" required>
         </div>
-        </div>
-        <div class="row">
-        <div class="form-group p-2">
+        <div class="item">
             <label for="mail">Adresse mail</label>
             <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Entrez votre mail" required>
         </div>
-        <div class="form-group p-2">
+        <div class="item">
             <label for="password">Mot de passe</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
         </div>
+<<<<<<< Updated upstream
         <div class="form-group p-2 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary m-2">S'inscrire</button>
-            <a href="/connexion"><button type="button" class="btn btn-secondary m-2">S'identifier</button></a>
+=======
+        <div class="item">
+            <select name="persontype" id="persontype" class="form-select">
+                <option value="" selected disabled>Choisisez un type d'utilisateur</option>
+                <option value="ADMIN">Administrateur</option>
+                <option value="STUDENT">Etudiant</option>
+                <option value="OLD">Personne aggée</option>
+            </select>
         </div>
+        <div class="connexion_buttons">
+>>>>>>> Stashed changes
+            <button type="submit" class="btn btn-primary m-2">S'inscrire</button>
+            <button type="button" class="btn btn-secondary m-2"><a href="/connexion">S'identifier</a></button>
         </div>
     </form>
+    </div>
 </div>
 
 </body>

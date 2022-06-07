@@ -1,4 +1,5 @@
 html, body, #page {
+<<<<<<< Updated upstream
   height:100%;
   width:100%;
   margin:0;
@@ -58,10 +59,131 @@ form {
   flex-direction: column;
   gap: 20px;
   width: 100%;
+=======
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    color: #5164AE;
+    background-color: #E8EDF5;
+    font-family: "Verdana";
+}
+
+header {
+    padding: 20px;
+    height: 10%;
+    background-color: #6EA570;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.align_row {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    gap: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+    height: 10%;
+    background-color: #6EA570;
+}
+
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    font-size: 25px;
+    color: white;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    font-size: 20px;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 2% 5%;
+}
+
+
+
+.welcome_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.proposal {
+    border: 5px solid #6EA570;
+    border-radius: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.align_proposal {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.photo {
+    height: 100px;
+    width: 100px;
+    border-radius: 200px;
+    object-fit: cover;
+}
+
+
+/*Annonce*/
+.form {
+    display: flex;
+    justify-content: center;
+
+    background-color: white;
+    padding: 50px 80px;
+    border-radius: 20px;
+    width: 500px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+>>>>>>> Stashed changes
 }
 
 
 .item {
+<<<<<<< Updated upstream
   display: flex;
   flex-direction: column;
 }
@@ -86,3 +208,192 @@ button {
 label {
   font-size: 20px;
 }
+=======
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    outline: none;
+    height: 30px;
+    color: black;
+    padding: 12px 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    border-radius: 10px;
+    font-size: 20px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+}
+
+.connexion_buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+label {
+    font-size: 20px;
+}
+
+select {
+    background-color: transparent;
+    border: 2px solid #5164AE;
+    padding: 10px;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    color: #5164AE;
+}
+
+select:focus {
+    border: 2px solid #5164AE;
+}
+
+/*Liste annonces*/
+.page2 {
+    display: flex;
+    flex-direction: row;
+
+    gap: 50px;
+    padding: 2% 5%;
+}
+
+.filtres {
+    height: 600px;
+    width: 25%;
+    border: 5px solid #e5b74a;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filtres > h2 {
+    color: #e5b74a;
+}
+
+.right {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    flex-direction: row;
+    color: #5164AE;
+    font-size: 15px;
+    border: 5px solid #5164AE;
+    border-radius: 20px;
+    height: 50px;
+    padding: 0 0 0 20px;
+}
+
+.annonce {
+    height: 300px;
+    border: 5px solid #5164AE;
+    border-radius: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.part1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontal_alignment {
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+}
+
+.horizontal_alignment2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
+.part2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+button {
+    border: 5px solid #5164AE;
+    border-radius: 15px;
+    font-size: 20px;
+    height: 50px;
+    color: white;
+    background-color: #5164AE;
+    cursor: pointer;
+    padding: 0 20px 0 20px;
+    width: 50%;
+}
+
+button:hover {
+    background-color: transparent;
+    color: #5164AE;
+}
+
+/*Profile*/
+.profile {
+    background-color: white;
+    width: 30%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    gap: 50px;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/*OldHome*/
+.proposalOld {
+    display: flex;
+    flex-direction: row;
+    border: 5px solid #6EA570;
+    border-radius: 30px;
+    padding: 20px;
+    gap: 50px;
+}
+
+.old1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.line{
+    width: 5px;
+
+    background-color: #6EA570;
+}
+>>>>>>> Stashed changes

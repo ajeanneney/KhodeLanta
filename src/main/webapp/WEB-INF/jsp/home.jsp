@@ -5,14 +5,19 @@
 <head>
     <meta charset="utf-8">
     <title>Connexion</title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css" />
     <jsp:include page="header.jsp"/>
 </head>
 <body>
+<<<<<<< Updated upstream:src/main/webapp/WEB-INF/jsp/home.jsp
 <h1>Home</h1>
 <a href="/newannonce">nouvelle annonce</a>
 <div class="d-flex justify-content-around">
+=======
+>>>>>>> Stashed changes:src/main/webapp/WEB-INF/jsp/oldHome.jsp
 
+<div class="page">
+    <h1>Bienvenue</h1>
     <div class="shadow rounded p-5 m-2 border border-secondary">
         Prenom : ${user.firstname}<br>
         Nom : ${user.lastname}<br>
