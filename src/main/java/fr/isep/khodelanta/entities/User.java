@@ -29,6 +29,11 @@ public class User implements Serializable {
 
     }
 
+    public void updateUser(String firstname, String lastname, String mail){
+        this.setFirstname(firstname);
+        this.setLastname(lastname);
+        this.setMail(mail);
+    }
     public PersonType getPersonType() {
         return personType;
     }
