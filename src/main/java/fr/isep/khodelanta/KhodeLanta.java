@@ -32,9 +32,11 @@ public class KhodeLanta {
         User user = new User("admin", "admin", "admin@admin.com", encoder("admin"), PersonType.ADMIN);
         User user2 = new User("student", "user", "student@student.com", encoder("user"), PersonType.STUDENT);
         User user3 = new User("old", "user", "old@old.com", encoder("user"), PersonType.OLD);
+        User user4 = new User("Yvette", "Tartempion", "yvette.tartempion@gmail.com", encoder("yvette"), PersonType.OLD);
         userDao.save(user);
         userDao.save(user2);
         userDao.save(user3);
+        userDao.save(user4);
 
         categorieDao.save(new Categorie("Informatique", "Aide informatique"));
         categorieDao.save(new Categorie("Jardinier", "Faire du jardinage"));
