@@ -25,8 +25,9 @@
             </c:forEach>
 </div>
                 <form method="post" action="">
-                    <button type="submit" class="btn btn-primary m-2">Valider</button>
-                    <button type="submit" class="btn btn-primary m-2">Refuser</button>
+                    <input type="hidden" name="idAnnonce" id="idAnnonce" value="${a.getId()}">
+                    <input type="submit" name="accept" id="accept" value="Valider" class="btn btn-primary m-2">
+                    <input type="submit" name="refuse" id="refuse" value="Refuser" class="btn btn-primary m-2">
                 </form>
         </div>
     </c:forEach>

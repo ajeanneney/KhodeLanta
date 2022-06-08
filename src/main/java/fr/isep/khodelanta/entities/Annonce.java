@@ -48,7 +48,9 @@ public class Annonce {
         this.adresse = adresse;
         this.isverified = isverified;
     }
-
+    public void updateIsVerified(Boolean bool){
+        this.setIsverified(bool);
+    }
     public String getAdresse() {
         return adresse;
     }

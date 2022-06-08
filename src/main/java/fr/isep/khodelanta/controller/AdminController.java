@@ -3,6 +3,7 @@ package fr.isep.khodelanta.controller;
 import fr.isep.khodelanta.dao.AnnonceRepository;
 import fr.isep.khodelanta.dao.CategorieRepository;
 import fr.isep.khodelanta.dao.UserRepository;
+import fr.isep.khodelanta.entities.Annonce;
 import fr.isep.khodelanta.entities.Categorie;
 import fr.isep.khodelanta.entities.PersonType;
 import fr.isep.khodelanta.entities.User;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
+import java.util.Objects;
 
 @Controller
 public class AdminController {
@@ -35,7 +37,9 @@ public class AdminController {
             @RequestParam(name = "name", required = false) String name,
             @RequestParam(name = "description", required = false) String description,
             @RequestParam(name = "isVerified", required = false) Boolean isVerified,
-            @RequestParam(name = "idAnnonce", required = false)String idAnnonce){
+            @RequestParam(name = "idAnnonce", required = false)Long idAnnonce,
+            @RequestParam(name = "accept", required = false)String accept,
+            @RequestParam(name = "refuse", required = false)String refuse){
 
 
         String userId = (String) request.getSession().getAttribute("userId");
@@ -48,9 +52,13 @@ public class AdminController {
             Categorie categorie = new Categorie(name, description);
             categorieDao.save(categorie);
         }
-
-        if(isVerified && !idAnnonce.isEmpty()){
-
+        if(idAnnonce != null &&  Objects.equals(accept, "Valider")){
+            System.out.println("managed to come here ");
+            Annonce annonce = annonceDao.findById(idAnnonce).get();
+            System.out.println("le titre c'est "+annonce.getTitle());
+            annonce.updateIsVerified(true);
+            System.out.println(annonce.getIsverified());
+            annonceDao.save(annonce);
         }
 
         model.addAttribute("annonces", annonceDao.findAll());

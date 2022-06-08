@@ -23,8 +23,10 @@
                                   class="form-control" required></textarea>
                     </div>
                     <div class="item">
-                        <label for="adresse">Adresse</label><input type="text" name="adresse" id="adresse"
-                                                                   placeholder="Votre adresse" class="form-control" required>
+                        <label for="adresse">Adresse</label><input type="text" name="adresse" id="adresse" placeholder="Votre adresse" class="form-control" required>
+                    </div>
+                    <div class="item">
+                        <label for="prix">Prix</label><input type="text" name="prix" id="prix" placeholder="Votre prix à l'heure" class="form-control" required>
                     </div>
                     <div class="item">
                         <select name="city" id="city" class="form-select">

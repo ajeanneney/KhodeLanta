@@ -53,12 +53,10 @@ public class AnnonceController {
                     Arrays.stream(categories).map(n->{
                         return categorieDao.findById(n).orElse(null);
                     }).collect(Collectors.toList());
-
             Annonce annonce = new Annonce(user, title, description, adresse, City.valueOf(city),prix, annonceCategories,false);
             annonceDao.save(annonce);
             return "redirect:/";
         }
-
         model.addAttribute("categories", categorieDao.findAll());
         model.addAttribute("annonces", annonceDao.findAll());
         model.addAttribute("cities", City.values());
