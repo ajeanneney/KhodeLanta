@@ -12,6 +12,7 @@
 
 <div class="d-flex justify-content-center flex-nowrap">
     <h1>Page pour étudiants</h1>
+    <a href="editProfile">Modifier mon profil</a>
     <a href="/student/search">Rechercher une annonce</a>
     <div class="shadow rounded p-5 m-2 border border-secondary">
                 <c:forEach items="${annonces}" var="a">

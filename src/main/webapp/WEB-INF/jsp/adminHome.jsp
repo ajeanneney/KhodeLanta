@@ -12,6 +12,9 @@
 <div class="d-flex justify-content-center flex-nowrap">
     <h1>Page pour l'admin</h1>
 </div>
+<div>
+    <a href="/admin/listUsers">Liste des Utilisateurs</a>
+</div>
 <div class="d-flex justify-content-center flex-nowrap">
     <c:forEach items="${annonces}" var="a">
         <div class="shadow rounded p-5 m-2 border border-secondary">

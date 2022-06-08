@@ -15,7 +15,7 @@ public class User implements Serializable {
     private String mail;
     private String password;
     private PersonType personType;
-
+    private int status = 1;
 
 
     public User(String firstname, String lastname, String mail, String password, PersonType personType) {
@@ -24,6 +24,7 @@ public class User implements Serializable {
         this.mail = mail;
         this.password = password;
         this.personType = personType;
+        this.status = 1;
     }
 
     public User() {
@@ -82,4 +83,8 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public int getStatus(){ return status; }
+
+    public void setStatus(int status){this.status = status;}
 }

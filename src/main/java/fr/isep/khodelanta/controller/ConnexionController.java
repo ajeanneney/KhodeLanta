@@ -39,6 +39,9 @@ public class ConnexionController {
             if(Objects.equals(user.getPassword(), encoder(password))){
                 HttpSession session = request.getSession();
                 session.setAttribute("userId", user.getId().toString());
+                if(user.getStatus() == 0){
+                    return "redirect:/disconnect";
+                }
                 if(user.getPersonType() == PersonType.ADMIN){return "redirect:admin/home";}
                 if(user.getPersonType() == PersonType.STUDENT){return "redirect:student/home";}
                 if(user.getPersonType() == PersonType.OLD){return "redirect:old/home";}

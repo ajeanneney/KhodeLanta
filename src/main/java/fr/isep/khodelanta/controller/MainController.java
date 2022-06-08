@@ -20,7 +20,7 @@ public class MainController {
     private UserRepository userDao;
 
     @RequestMapping(value = "/")
-    public String acceuil(HttpServletRequest request){
+    public String accueil(HttpServletRequest request){
         String userId = (String) request.getSession().getAttribute("userId");
 
         if(userId == null || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/connexion";}

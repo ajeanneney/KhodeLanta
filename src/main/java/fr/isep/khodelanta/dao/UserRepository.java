@@ -12,5 +12,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     public User findByMail(String mail);
 
+    @Query("select u from User u where u.id = :x")
+    public User findUserByUserId(@Param("x") Long id);
 
 }
