@@ -48,9 +48,6 @@ public class Annonce {
         this.adresse = adresse;
         this.isverified = isverified;
     }
-    public void updateIsVerified(Boolean bool){
-        this.setIsverified(bool);
-    }
     public String getAdresse() {
         return adresse;
     }
@@ -109,7 +106,7 @@ public class Annonce {
 
     public boolean getIsverified() {return isverified;}
 
-    public void setIsverified(Boolean verified) { this.isverified = isverified;}
+    public void setIsverified(Boolean isverified) { this.isverified = isverified;}
 
     public List<Categorie> getCategories() {
         return categories;
