@@ -26,9 +26,6 @@
                         <label for="adresse">Adresse</label><input type="text" name="adresse" id="adresse" placeholder="Votre adresse" class="form-control" required>
                     </div>
                     <div class="item">
-                        <label for="prix">Prix</label><input type="text" name="prix" id="prix" placeholder="Votre prix à l'heure" class="form-control" required>
-                    </div>
-                    <div class="item">
                         <select name="city" id="city" class="form-select">
                             <option value="" selected disabled>Choisisez une région</option>
                             <c:forEach items="${cities}" var="c">
@@ -36,6 +33,10 @@
                             </c:forEach>
                         </select>
                     </div>
+                    <div class="item">
+                        <label for="prix">Prix</label><input type="text" name="prix" id="prix" placeholder="Votre prix à l'heure" class="form-control" required>
+                    </div>
+
                     <c:forEach items="${categories}" var="c">
                         <div class="horizontal_alignment2">
                             <input class="form-check-input" type="checkbox" name="categories" value="${c.id}">

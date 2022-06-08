@@ -23,7 +23,7 @@
             </div>
             <div class="connexion_buttons">
                 <button type="submit" class="btn btn-primary m-2">Connexion</button>
-                <button type="button" class="btn btn-secondary m-2"><a href="/signup">Créer un compte</a></button>
+                <a href="/signup"><button type="button" class="btn btn-secondary m-2">Créer un compte</button></a>
             </div>
         </form>
     </div>

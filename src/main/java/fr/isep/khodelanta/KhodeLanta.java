@@ -36,6 +36,7 @@ public class KhodeLanta {
         userDao.save(user2);
         userDao.save(user3);
 
+        categorieDao.save(new Categorie("Informatique", "Aide informatique"));
         categorieDao.save(new Categorie("Jardinier", "Faire du jardinage"));
         categorieDao.save(new Categorie("Cuisine", "Faire la cuisine"));
 

@@ -9,29 +9,37 @@
     <jsp:include page="header.jsp"/>
 </head>
 <body>
-<h1>Home</h1>
-<a href="/old/newannonce">nouvelle annonce</a>
-<div class="d-flex justify-content-around">
+<div class="page">
+    <a href="/old/newannonce"><h1>Nouvelle annonce</h1></a>
+    <div class="annonce_list">
+        <c:forEach items="${annonces}" var="a">
+            <div class="annonce">
+                <div class="vertical_alignment">
+                    <div>
+                        <h3>Titre de l'annonce</h3>
+                            ${a.title}<br>
+                    </div>
+                    <div>
+                        <h3>Adresse</h3>
+                            ${a.adresse}<br>
+                    </div>
+                </div>
+                <div>
+                    <h3>Besoin</h3>
+                        ${a.description}<br>
+                </div>
 
-    <div class="shadow rounded p-5 m-2 border border-secondary">
-        Prenom : ${user.firstname}<br>
-        Nom : ${user.lastname}<br>
-        Mail : ${user.mail}<br>
-    </div>
-    <c:forEach items="${annonces}" var="a">
-            <div class="shadow rounded p-5 m-2 border border-secondary">
-                    ${a.title}<br>
-                    ${a.description}<br>
-                    ${a.adresse}<br>
-                <c:forEach items="${a.categories}" var="c">
-                    ${c.name}<br>
-                    ${c.description}<br>
-                    <br>
-                </c:forEach>
-                <br><br>
+                <div>
+                    <h3>Catégorie</h3>
+                    <c:forEach items="${a.categories}" var="c">
+                        ${c.name}<br>
+                        ${c.description}<br>
+                        <br>
+                    </c:forEach>
+                </div>
             </div>
-    </c:forEach>
+        </c:forEach>
+    </div>
 </div>
-
 </body>
 </html>

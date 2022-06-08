@@ -53,11 +53,8 @@ public class AdminController {
             categorieDao.save(categorie);
         }
         if(idAnnonce != null &&  Objects.equals(accept, "Valider")){
-            System.out.println("managed to come here ");
             Annonce annonce = annonceDao.findById(idAnnonce).get();
-            System.out.println("le titre c'est "+annonce.getTitle());
-            annonce.updateIsVerified(true);
-            System.out.println(annonce.getIsverified());
+            annonce.setIsverified(true);
             annonceDao.save(annonce);
         }
 
