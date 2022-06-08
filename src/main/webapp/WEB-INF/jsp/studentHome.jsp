@@ -36,11 +36,11 @@
         <div class="searchBar">
             <h3>Rechercher une annonce</h3>
         </div>
-        <c:forEach items="${annonces}" var="a">
+        <c:forEach items="${annoncesVerified}" var="a">
             <div class="annonce">
                 <div class="part1">
                     <div>
-                        <h3>Yvette</h3>
+                        <h3>${a.getOwner().getFirstname()}</h3>
                         <h3>85 ans</h3>
                         <h3>${a.city.name}</h3>
                     </div>

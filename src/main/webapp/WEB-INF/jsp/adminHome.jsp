@@ -37,7 +37,6 @@
 <div class="d-flex justify-content-center flex-nowrap">
     <form action="" method="post">
         <h3>Ajouter une catégorie</h3>
-
         <div class="item">
             <label for="name">Nom de la catégorie : </label>
             <input type="text" name="name" id="name" class="form-control">

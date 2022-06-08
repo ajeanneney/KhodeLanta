@@ -36,6 +36,7 @@ public class StudentController {
 
         model.addAttribute("user", user);
         model.addAttribute("annonces", annonceDao.findAll());
+        model.addAttribute("annoncesVerified",annonceDao.findByIsverified(true));
 
         return "studentHome";
     }
