@@ -398,3 +398,14 @@ button:hover {
     flex-direction: column;
     gap: 10px;
 }
+
+.button_input {
+    border-radius: 10px;
+    font-size: 20px;
+    height: 50px;
+    cursor: pointer;
+    border: 5px solid #5164AE;
+    padding: 10px;
+    background-color: transparent;
+    color: #5164AE;
+}

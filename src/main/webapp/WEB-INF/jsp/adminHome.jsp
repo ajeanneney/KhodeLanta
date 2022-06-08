@@ -1,37 +1,54 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Connexion</title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css"/>
     <jsp:include page="header.jsp"/>
 </head>
 <body>
 
 <div class="page">
-<div class="admin">
-    <h1>Annonces à vérifier</h1>
-    <c:forEach items="${annoncesIsNotVerified}" var="a">
+    <div class="admin">
+        <h1>Annonces à vérifier</h1>
+        <c:forEach items="${annoncesIsNotVerified}" var="a">
         <div class="validate_annonce">
-            ${a.title}<br>
-            ${a.description}<br>
-            ${a.adresse}<br>
+            <div class="horizontal_alignment">
+                <div>
+            <h3>Titre</h3>
+                ${a.title}<br>
+                </div>
+                <div>
+            <h3>Besoin</h3>
+                ${a.description}<br>
+                </div>
+            </div>
+            <div class="horizontal_alignment">
+                <div>
+            <h3>Adresse</h3>
+                ${a.adresse}<br>
+                </div>
+                <div>
+            <h3>Catégorie</h3>
             <c:forEach items="${a.categories}" var="c">
                 ${c.name}<br>
                 ${c.description}<br>
                 <br>
             </c:forEach>
-</div>
-                <form method="post" action="">
-                    <input type="hidden" name="idAnnonce" id="idAnnonce" value="${a.getId()}">
-                    <input type="submit" name="accept" id="accept" value="Valider" class="btn btn-primary m-2">
-                    <input type="submit" name="refuse" id="refuse" value="Refuser" class="btn btn-primary m-2">
-                </form>
+                </div>
+            </div>
+
+        <form method="post" action="">
+            <input type="hidden" name="idAnnonce" id="idAnnonce" value="${a.getId()}">
+            <input type="submit" name="accept" id="accept" value="Valider" class="button_input">
+            <input type="submit" name="refuse" id="refuse" value="Refuser" class="button_input">
+        </form>
         </div>
+    </div>
     </c:forEach>
-</div>
+
 
 
 <div class="d-flex justify-content-center flex-nowrap">
@@ -45,8 +62,9 @@
             <label for="description">Description de la catégorie : </label>
             <input type="text" name="description" id="description" class="form-control">
         </div>
-            <button type="submit" class="btn btn-primary m-2">Ajouter la catégorie</button>
+        <button type="submit" class="btn btn-primary m-2">Ajouter la catégorie</button>
     </form>
+</div>
 </div>
 </div>
 
